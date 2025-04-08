@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 
+	_ "go-test/docs/generated" // Импорт сгенерированной Swagger документации
+	"go-test/internal/api"
 	"go-test/internal/logutil"
 	"go-test/internal/sap"
 	"go-test/internal/storage"
@@ -16,6 +18,18 @@ const (
 	logFileName = "segmentation_import.log"
 )
 
+// @title SAP Segmentation API
+// @version 1.0
+// @description API для импорта и доступа к данным сегментации из SAP
+
+// @contact.name API Support
+// @contact.email support@example.com
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host localhost:8080
+// @BasePath /
 func main() {
 	// Настраиваем временный логгер для процесса инициализации
 	initLogger := log.New(os.Stdout, "INIT: ", log.LstdFlags)
@@ -48,26 +62,36 @@ func main() {
 	// Создаем клиент для работы с SAP API
 	sapClient := sap.NewClient(cfg, logger)
 
-	// Получаем данные о сегментации из SAP API
-	logger.Info("starting import from SAP API")
-	segments, err := sapClient.FetchSegmentation()
-	if err != nil {
-		logger.Error("failed to fetch segmentation data", "error", err.Error())
+	// Запускаем импорт в фоновом режиме при старте, если установлен флаг
+	runImportOnStart := os.Getenv("RUN_IMPORT_ON_START") == "true"
+	if runImportOnStart {
+		go func() {
+			logger.Info("starting initial import from SAP API")
+			segments, err := sapClient.FetchSegmentation()
+			if err != nil {
+				logger.Error("failed to fetch segmentation data", "error", err.Error())
+				return
+			}
+
+			if len(segments) == 0 {
+				logger.Info("no segmentation data to import")
+				return
+			}
+
+			logger.Info("importing segmentation data to database", "count", len(segments))
+			if err := segmentationRepo.InsertOrUpdate(segments); err != nil {
+				logger.Error("failed to import segmentation data", "error", err.Error())
+				return
+			}
+
+			logger.Info("initial import completed successfully", "total_imported", len(segments))
+		}()
+	}
+
+	// Создаем и запускаем HTTP сервер
+	server := api.NewServer(cfg, logger, sapClient, segmentationRepo)
+	if err := server.Run(":" + cfg.App.Port); err != nil {
+		logger.Error("failed to start server", "error", err.Error())
 		os.Exit(1)
 	}
-
-	// Если данных нет, завершаем работу
-	if len(segments) == 0 {
-		logger.Info("no segmentation data to import")
-		return
-	}
-
-	// Сохраняем данные в базу
-	logger.Info("importing segmentation data to database", "count", len(segments))
-	if err := segmentationRepo.InsertOrUpdate(segments); err != nil {
-		logger.Error("failed to import segmentation data", "error", err.Error())
-		os.Exit(1)
-	}
-
-	logger.Info("import completed successfully", "total_imported", len(segments))
 }

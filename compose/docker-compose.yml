@@ -28,6 +28,8 @@ services:
       dockerfile: build/Dockerfile
     container_name: sap_segmentation_service
     restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:8080"
     depends_on:
       postgres:
         condition: service_healthy
@@ -45,6 +47,8 @@ services:
       CONN_INTERVAL: ${CONN_INTERVAL}
       IMPORT_BATCH_SIZE: ${IMPORT_BATCH_SIZE}
       LOG_CLEANUP_MAX_AGE: ${LOG_CLEANUP_MAX_AGE}
+      APP_PORT: 8080
+      RUN_IMPORT_ON_START: "true"
     volumes:
       - ../log:/app/log
 
