@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"time"
 
+	"go-test/internal/models"
 	"go-test/pkg/config"
-	"go-test/pkg/repository"
 )
 
 type Client struct {
@@ -24,7 +24,7 @@ type Client struct {
 }
 
 type Response struct {
-	Items []repository.Segmentation `json:"items"`
+	Items []models.Segmentation `json:"items"`
 }
 
 func NewClient(cfg *config.Config, logger *slog.Logger) *Client {
@@ -44,8 +44,8 @@ func NewClient(cfg *config.Config, logger *slog.Logger) *Client {
 	}
 }
 
-func (c *Client) FetchSegmentation() ([]*repository.Segmentation, error) {
-	var allSegments []*repository.Segmentation
+func (c *Client) FetchSegmentation() ([]*models.Segmentation, error) {
+	var allSegments []*models.Segmentation
 	offset := 0
 
 	c.logger.Info("testing connection to SAP API", "url", c.baseURL)
@@ -127,9 +127,9 @@ func (c *Client) FetchSegmentation() ([]*repository.Segmentation, error) {
 			break
 		}
 
-		segments := make([]*repository.Segmentation, len(response.Items))
+		segments := make([]*models.Segmentation, 0)
 		for i, item := range response.Items {
-			segments[i] = &repository.Segmentation{
+			segments[i] = &models.Segmentation{
 				AddressSapID: item.AddressSapID,
 				AdrSegment:   item.AdrSegment,
 				SegmentID:    item.SegmentID,

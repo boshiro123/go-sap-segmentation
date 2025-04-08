@@ -8,9 +8,9 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
+	"go-test/internal/repository"
 	"go-test/internal/sap"
 	"go-test/pkg/config"
-	"go-test/pkg/repository"
 )
 
 type Server struct {

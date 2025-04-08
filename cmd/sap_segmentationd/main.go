@@ -7,10 +7,10 @@ import (
 	_ "go-test/docs/generated"
 	"go-test/internal/api"
 	"go-test/internal/logutil"
+	"go-test/internal/repository"
 	"go-test/internal/sap"
 	"go-test/internal/storage"
 	"go-test/pkg/config"
-	"go-test/pkg/repository"
 )
 
 const (
