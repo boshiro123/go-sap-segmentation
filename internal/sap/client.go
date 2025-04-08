@@ -28,6 +28,7 @@ type Response struct {
 }
 
 func NewClient(cfg *config.Config, logger *slog.Logger) *Client {
+	logger.Info("config:", "cfg", cfg)
 	auth := base64.StdEncoding.EncodeToString([]byte(cfg.Connection.AuthLoginPwd))
 
 	return &Client{
@@ -47,38 +48,35 @@ func (c *Client) FetchSegmentation() ([]*repository.Segmentation, error) {
 	var allSegments []*repository.Segmentation
 	offset := 0
 
-	useTestData := false
-
 	c.logger.Info("testing connection to SAP API", "url", c.baseURL)
 	testURL := fmt.Sprintf("%s?p_limit=1&p_offset=0", c.baseURL)
 	testReq, err := http.NewRequest(http.MethodGet, testURL, nil)
-	if err == nil {
-		testReq.Header.Set("Authorization", c.authHeader)
-		testReq.Header.Set("User-Agent", c.userAgent)
-		testResp, testErr := c.httpClient.Do(testReq)
-
-		if testErr != nil || (testResp != nil && testResp.StatusCode != http.StatusOK) {
-			statusCode := 0
-			if testResp != nil {
-				statusCode = testResp.StatusCode
-			}
-
-			c.logger.Warn("SAP API is not available, using test data",
-				"error", testErr,
-				"status", statusCode,
-			)
-			useTestData = true
-		}
-
-		if testResp != nil && testResp.Body != nil {
-			testResp.Body.Close()
-		}
-	} else {
-		useTestData = true
+	if err != nil {
+		c.logger.Error("error creating test request", "error", err.Error())
+		return nil, fmt.Errorf("error creating test request: %w", err)
 	}
 
-	if useTestData {
-		return c.generateTestData(), nil
+	testReq.Header.Set("Authorization", c.authHeader)
+	testReq.Header.Set("User-Agent", c.userAgent)
+	testResp, testErr := c.httpClient.Do(testReq)
+
+	if testErr != nil {
+		c.logger.Error("error connecting to SAP API", "error", testErr.Error())
+		return nil, fmt.Errorf("error connecting to SAP API: %w", testErr)
+	}
+
+	if testResp != nil && testResp.Body != nil {
+		defer testResp.Body.Close()
+	}
+
+	if testResp != nil && testResp.StatusCode != http.StatusOK {
+		bodyBytes, _ := io.ReadAll(testResp.Body)
+		c.logger.Error("SAP API returned error status",
+			"status", testResp.StatusCode,
+			"body", string(bodyBytes),
+		)
+		return nil, fmt.Errorf("error response from SAP API: status=%d, body=%s",
+			testResp.StatusCode, string(bodyBytes))
 	}
 
 	for {
@@ -148,38 +146,4 @@ func (c *Client) FetchSegmentation() ([]*repository.Segmentation, error) {
 	c.logger.Info("finished fetching data from SAP API", "total_segments", len(allSegments))
 
 	return allSegments, nil
-}
-
-func (c *Client) generateTestData() []*repository.Segmentation {
-	c.logger.Info("generating test data for development")
-
-	testData := []*repository.Segmentation{
-		{
-			AddressSapID: "SAP-001",
-			AdrSegment:   "SEGMENT-A",
-			SegmentID:    1001,
-		},
-		{
-			AddressSapID: "SAP-002",
-			AdrSegment:   "SEGMENT-B",
-			SegmentID:    1002,
-		},
-		{
-			AddressSapID: "SAP-003",
-			AdrSegment:   "SEGMENT-C",
-			SegmentID:    1003,
-		},
-		{
-			AddressSapID: "SAP-004",
-			AdrSegment:   "SEGMENT-A",
-			SegmentID:    1001,
-		},
-		{
-			AddressSapID: "SAP-005",
-			AdrSegment:   "SEGMENT-B",
-			SegmentID:    1002,
-		},
-	}
-
-	return testData
 }
