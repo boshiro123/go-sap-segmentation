@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  # PostgreSQL база данных
+  postgres:
+    image: postgres:16-alpine
+    container_name: sap_segmentation_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../setup/install.sql:/docker-entrypoint-initdb.d/install.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Сервис SAP Segmentation
+  sap_segmentation:
+    build:
+      context: ..
+      dockerfile: build/Dockerfile
+    container_name: sap_segmentation_service
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ENV: ${ENV}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      CONN_URI: ${CONN_URI}
+      CONN_AUTH_LOGIN_PWD: ${CONN_AUTH_LOGIN_PWD}
+      CONN_USER_AGENT: ${CONN_USER_AGENT}
+      CONN_TIMEOUT: ${CONN_TIMEOUT}
+      CONN_INTERVAL: ${CONN_INTERVAL}
+      IMPORT_BATCH_SIZE: ${IMPORT_BATCH_SIZE}
+      LOG_CLEANUP_MAX_AGE: ${LOG_CLEANUP_MAX_AGE}
+    volumes:
+      - ../log:/app/log
+
+volumes:
+  postgres_data:
