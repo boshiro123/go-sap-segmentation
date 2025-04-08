@@ -9,34 +9,30 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 
 	"go-test/internal/sap"
-	"go-test/model"
 	"go-test/pkg/config"
+	"go-test/pkg/repository"
 )
 
-// Server представляет HTTP сервер API
 type Server struct {
 	router           *gin.Engine
 	logger           *slog.Logger
 	cfg              *config.Config
 	sapClient        *sap.Client
-	segmentationRepo *model.SegmentationRepository
+	segmentationRepo *repository.SegmentationRepository
 }
 
-// NewServer создает новый экземпляр сервера API
 func NewServer(
 	cfg *config.Config,
 	logger *slog.Logger,
 	sapClient *sap.Client,
-	segmentationRepo *model.SegmentationRepository,
+	segmentationRepo *repository.SegmentationRepository,
 ) *Server {
-	// В производственном режиме используем "release" режим Gin
 	if cfg.Env == "prod" {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
 	router := gin.New()
 
-	// Используем middleware для логирования и восстановления после паники
 	router.Use(gin.Recovery())
 	router.Use(loggerMiddleware(logger))
 
@@ -48,26 +44,21 @@ func NewServer(
 		segmentationRepo: segmentationRepo,
 	}
 
-	// Инициализируем маршруты
 	server.initRoutes()
 
 	return server
 }
 
-// loggerMiddleware создает middleware для логирования запросов
 func loggerMiddleware(logger *slog.Logger) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// Логируем запрос до его обработки
 		logger.Info("request started",
 			"method", c.Request.Method,
 			"path", c.Request.URL.Path,
 			"ip", c.ClientIP(),
 		)
 
-		// Обрабатываем запрос
 		c.Next()
 
-		// Логируем результат после обработки
 		logger.Info("request completed",
 			"method", c.Request.Method,
 			"path", c.Request.URL.Path,
@@ -76,12 +67,9 @@ func loggerMiddleware(logger *slog.Logger) gin.HandlerFunc {
 	}
 }
 
-// initRoutes инициализирует маршруты API
 func (s *Server) initRoutes() {
-	// Группа маршрутов API
 	api := s.router.Group("/api")
 	{
-		// Эндпоинты для работы с сегментацией
 		segmentation := api.Group("/segmentation")
 		{
 			segmentation.GET("/", s.getAllSegments)
@@ -89,20 +77,16 @@ func (s *Server) initRoutes() {
 			segmentation.POST("/import", s.importSegmentation)
 		}
 
-		// Эндпоинт для проверки работоспособности
 		api.GET("/health", s.healthCheck)
 	}
 
-	// Маршруты для Swagger
 	s.router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	// Добавляем редирект с корневого пути на Swagger UI
 	s.router.GET("/", func(c *gin.Context) {
 		c.Redirect(http.StatusMovedPermanently, "/swagger/index.html")
 	})
 }
 
-// Run запускает HTTP сервер
 func (s *Server) Run(addr string) error {
 	s.logger.Info("starting API server", "address", addr)
 	return s.router.Run(addr)
@@ -164,7 +148,6 @@ func (s *Server) getSegmentByID(c *gin.Context) {
 func (s *Server) importSegmentation(c *gin.Context) {
 	s.logger.Info("starting segmentation import")
 
-	// Получаем данные из SAP API
 	segments, err := s.sapClient.FetchSegmentation()
 	if err != nil {
 		s.logger.Error("failed to fetch segmentation", "error", err.Error())
@@ -172,13 +155,11 @@ func (s *Server) importSegmentation(c *gin.Context) {
 		return
 	}
 
-	// Если данных нет, возвращаем сообщение
 	if len(segments) == 0 {
 		c.JSON(http.StatusOK, gin.H{"message": "no segmentation data to import"})
 		return
 	}
 
-	// Сохраняем данные в базу
 	if err := s.segmentationRepo.InsertOrUpdate(segments); err != nil {
 		s.logger.Error("failed to save segmentation data", "error", err.Error())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to save segmentation data"})

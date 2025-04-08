@@ -23,8 +23,6 @@ func SwaggerInfo() {
 	})
 }
 
-// Template для Swagger документации.
-// Будет заменен автоматически генерируемой документацией.
 const docTemplate = `{
   "swagger": "2.0",
   "info": {

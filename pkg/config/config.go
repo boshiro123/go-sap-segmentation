@@ -38,7 +38,6 @@ type Config struct {
 	}
 }
 
-// MustLoad загружает конфигурацию из переменных окружения или использует значения по умолчанию
 func MustLoad(logger *slog.Logger) *Config {
 	var cfg Config
 

@@ -4,13 +4,13 @@ import (
 	"log"
 	"os"
 
-	_ "go-test/docs/generated" // Импорт сгенерированной Swagger документации
+	_ "go-test/docs/generated"
 	"go-test/internal/api"
 	"go-test/internal/logutil"
 	"go-test/internal/sap"
 	"go-test/internal/storage"
-	"go-test/model"
 	"go-test/pkg/config"
+	"go-test/pkg/repository"
 )
 
 const (
@@ -31,24 +31,19 @@ const (
 // @host localhost:8080
 // @BasePath /
 func main() {
-	// Настраиваем временный логгер для процесса инициализации
 	initLogger := log.New(os.Stdout, "INIT: ", log.LstdFlags)
 
-	// Загружаем конфигурацию
-	cfg := config.MustLoad(nil) // Временно передаем nil, так как основной логгер еще не создан
+	cfg := config.MustLoad(nil)
 
-	// Настраиваем основной логгер
 	logger, err := logutil.SetupLogger(cfg.Env, logDir, logFileName)
 	if err != nil {
 		initLogger.Fatalf("failed to setup logger: %v", err)
 	}
 
-	// Очищаем старые логи
 	if err := logutil.CleanupOldLogs(logDir, cfg.Import.LogCleanupMaxAge, logger); err != nil {
 		logger.Error("failed to cleanup old logs", "error", err.Error())
 	}
 
-	// Устанавливаем соединение с базой данных
 	db, err := storage.NewPostgresDB(cfg, logger)
 	if err != nil {
 		logger.Error("failed to initialize database", "error", err.Error())
@@ -56,13 +51,10 @@ func main() {
 	}
 	defer db.Close()
 
-	// Создаем репозиторий для работы с сегментацией
-	segmentationRepo := model.NewSegmentationRepository(db)
+	segmentationRepo := repository.NewSegmentationRepository(db)
 
-	// Создаем клиент для работы с SAP API
 	sapClient := sap.NewClient(cfg, logger)
 
-	// Запускаем импорт в фоновом режиме при старте, если установлен флаг
 	runImportOnStart := os.Getenv("RUN_IMPORT_ON_START") == "true"
 	if runImportOnStart {
 		go func() {
@@ -88,7 +80,6 @@ func main() {
 		}()
 	}
 
-	// Создаем и запускаем HTTP сервер
 	server := api.NewServer(cfg, logger, sapClient, segmentationRepo)
 	if err := server.Run(":" + cfg.App.Port); err != nil {
 		logger.Error("failed to start server", "error", err.Error())

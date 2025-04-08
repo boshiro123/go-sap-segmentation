@@ -9,11 +9,10 @@ import (
 	"net/http"
 	"time"
 
-	"go-test/model"
 	"go-test/pkg/config"
+	"go-test/pkg/repository"
 )
 
-// Client представляет клиент для работы с SAP API
 type Client struct {
 	httpClient *http.Client
 	baseURL    string
@@ -24,14 +23,11 @@ type Client struct {
 	logger     *slog.Logger
 }
 
-// Response представляет ответ от SAP API
 type Response struct {
-	Items []model.Segmentation `json:"items"`
+	Items []repository.Segmentation `json:"items"`
 }
 
-// NewClient создает новый клиент для работы с SAP API
 func NewClient(cfg *config.Config, logger *slog.Logger) *Client {
-	// Кодируем логин:пароль в base64 для Basic Auth
 	auth := base64.StdEncoding.EncodeToString([]byte(cfg.Connection.AuthLoginPwd))
 
 	return &Client{
@@ -47,16 +43,12 @@ func NewClient(cfg *config.Config, logger *slog.Logger) *Client {
 	}
 }
 
-// FetchSegmentation получает данные о сегментации из SAP API
-func (c *Client) FetchSegmentation() ([]*model.Segmentation, error) {
-	var allSegments []*model.Segmentation
+func (c *Client) FetchSegmentation() ([]*repository.Segmentation, error) {
+	var allSegments []*repository.Segmentation
 	offset := 0
 
-	// Если SAP API недоступен или возникает ошибка авторизации,
-	// возвращаем тестовые данные в режиме разработки
 	useTestData := false
 
-	// При первом запросе проверим доступность API
 	c.logger.Info("testing connection to SAP API", "url", c.baseURL)
 	testURL := fmt.Sprintf("%s?p_limit=1&p_offset=0", c.baseURL)
 	testReq, err := http.NewRequest(http.MethodGet, testURL, nil)
@@ -85,7 +77,6 @@ func (c *Client) FetchSegmentation() ([]*model.Segmentation, error) {
 		useTestData = true
 	}
 
-	// Если API недоступен, используем тестовые данные
 	if useTestData {
 		return c.generateTestData(), nil
 	}
@@ -97,74 +88,60 @@ func (c *Client) FetchSegmentation() ([]*model.Segmentation, error) {
 			"limit", c.batchSize,
 		)
 
-		// Формируем URL с параметрами
 		url := fmt.Sprintf("%s?p_limit=%d&p_offset=%d", c.baseURL, c.batchSize, offset)
 
-		// Создаем запрос
 		req, err := http.NewRequest(http.MethodGet, url, nil)
 		if err != nil {
 			return nil, fmt.Errorf("error creating request: %w", err)
 		}
 
-		// Устанавливаем заголовки
 		req.Header.Set("Authorization", c.authHeader)
 		req.Header.Set("User-Agent", c.userAgent)
 
-		// Выполняем запрос
 		resp, err := c.httpClient.Do(req)
 		if err != nil {
 			return nil, fmt.Errorf("error making request: %w", err)
 		}
 
-		// Закрываем тело ответа после обработки
 		defer resp.Body.Close()
 
-		// Проверяем код ответа
 		if resp.StatusCode != http.StatusOK {
 			bodyBytes, _ := io.ReadAll(resp.Body)
 			return nil, fmt.Errorf("error response from SAP API: status=%d, body=%s",
 				resp.StatusCode, string(bodyBytes))
 		}
 
-		// Читаем тело ответа
 		bodyBytes, err := io.ReadAll(resp.Body)
 		if err != nil {
 			return nil, fmt.Errorf("error reading response body: %w", err)
 		}
 
-		// Если ответ пустой, значит достигли конца данных
 		if len(bodyBytes) == 0 || string(bodyBytes) == "[]" || string(bodyBytes) == "{}" {
 			break
 		}
 
-		// Декодируем JSON
 		var response Response
 		if err := json.Unmarshal(bodyBytes, &response); err != nil {
 			return nil, fmt.Errorf("error unmarshaling response: %w", err)
 		}
 
-		// Если нет элементов, значит достигли конца данных
 		if len(response.Items) == 0 {
 			break
 		}
 
-		// Преобразуем элементы ответа в указатели на структуры Segmentation
-		segments := make([]*model.Segmentation, len(response.Items))
+		segments := make([]*repository.Segmentation, len(response.Items))
 		for i, item := range response.Items {
-			segments[i] = &model.Segmentation{
+			segments[i] = &repository.Segmentation{
 				AddressSapID: item.AddressSapID,
 				AdrSegment:   item.AdrSegment,
 				SegmentID:    item.SegmentID,
 			}
 		}
 
-		// Добавляем полученные сегменты к общему списку
 		allSegments = append(allSegments, segments...)
 
-		// Увеличиваем смещение для следующего запроса
 		offset += c.batchSize
 
-		// Делаем паузу перед следующим запросом
 		time.Sleep(c.interval)
 	}
 
@@ -173,12 +150,10 @@ func (c *Client) FetchSegmentation() ([]*model.Segmentation, error) {
 	return allSegments, nil
 }
 
-// generateTestData создает тестовые данные для разработки и тестирования
-func (c *Client) generateTestData() []*model.Segmentation {
+func (c *Client) generateTestData() []*repository.Segmentation {
 	c.logger.Info("generating test data for development")
 
-	// Создаем примерные тестовые данные
-	testData := []*model.Segmentation{
+	testData := []*repository.Segmentation{
 		{
 			AddressSapID: "SAP-001",
 			AdrSegment:   "SEGMENT-A",
