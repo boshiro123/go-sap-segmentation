@@ -116,7 +116,3 @@
   ```bash
   docker-compose -f compose/docker-compose.yml logs -f
   ```
-
-## Лицензия
-
-Copyright © 2024
