@@ -929,3 +929,63 @@
   "path": "/api/segmentation/import",
   "status": 200
 }
+[12:49:49.316] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/"
+}
+[12:49:49.323] INFO: request completed {
+  "method": "GET",
+  "path": "/",
+  "status": 301
+}
+[12:49:49.326] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/index.html"
+}
+[12:49:49.327] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/index.html",
+  "status": 200
+}
+[12:49:49.358] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css"
+}
+[12:49:49.358] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}
+[12:49:49.360] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}
+[12:49:49.366] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}
+[12:49:49.362] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css",
+  "status": 200
+}
+[12:49:49.366] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}
+[12:49:49.443] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/doc.json"
+}
+[12:49:49.443] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/doc.json",
+  "status": 200
+}
