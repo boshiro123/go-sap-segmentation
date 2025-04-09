@@ -657,3 +657,143 @@
   "path": "/api/segmentation/",
   "status": 200
 }
+[12:42:42.434] INFO: starting log cleanup {
+  "cutoff_time": "2025-04-02T12:00:42Z",
+  "log_dir": "log",
+  "max_age_days": 7
+}
+[12:42:42.435] INFO: log cleanup completed {
+  "removed_files": 0
+}
+[12:42:42.436] INFO: connecting to database {
+  "dbname": "mesh_group",
+  "host": "postgres",
+  "port": "5432",
+  "user": "postgres"
+}
+[12:42:42.442] INFO: successfully connected to database 
+[12:42:42.442] INFO: config: {
+  "cfg": {
+    "Env": "local",
+    "TokenTTL": 3600000000000,
+    "DB": {
+      "Host": "postgres",
+      "Port": "5432",
+      "Name": "mesh_group",
+      "User": "postgres",
+      "Password": "postgres"
+    },
+    "Connection": {
+      "URI": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation",
+      "AuthLoginPwd": "4Dfddf5:jKlljHGH",
+      "UserAgent": "spacecount-test",
+      "Timeout": 5000000000,
+      "Interval": 1500000000
+    },
+    "Import": {
+      "BatchSize": 50,
+      "LogCleanupMaxAge": 7,
+      "UseTestData": true
+    },
+    "App": {
+      "Port": "8080"
+    }
+  }
+}
+[12:42:42.442] INFO: starting API server {
+  "address": ":8080"
+}
+[12:43:43.681] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/index.html"
+}
+[12:43:43.682] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/index.html",
+  "status": 200
+}
+[12:43:43.694] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css"
+}
+[12:43:43.694] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css",
+  "status": 200
+}
+[12:43:43.700] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}
+[12:43:43.702] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}
+[12:43:43.701] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}
+[12:43:43.703] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}
+[12:43:43.786] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/doc.json"
+}
+[12:43:43.786] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/doc.json",
+  "status": 200
+}
+[12:43:43.823] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png"
+}
+[12:43:43.823] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png",
+  "status": 200
+}
+[12:51:51.605] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/health"
+}
+[12:51:51.605] DEBUG: health check requested 
+[12:51:51.606] INFO: request completed {
+  "method": "GET",
+  "path": "/api/health",
+  "status": 200
+}
+[12:57:57.763] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}
+[12:57:57.768] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
+}
+[12:07:07.108] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "POST",
+  "path": "/api/segmentation/import"
+}
+[12:07:07.108] INFO: starting segmentation import 
+[12:07:07.108] INFO: using test data as configured by USE_TEST_DATA=true 
+[12:07:07.108] INFO: generating test data for development 
+[12:07:07.113] INFO: request completed {
+  "method": "POST",
+  "path": "/api/segmentation/import",
+  "status": 200
+}
