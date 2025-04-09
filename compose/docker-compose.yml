@@ -48,7 +48,8 @@ services:
       IMPORT_BATCH_SIZE: ${IMPORT_BATCH_SIZE}
       LOG_CLEANUP_MAX_AGE: ${LOG_CLEANUP_MAX_AGE}
       APP_PORT: 8080
-      RUN_IMPORT_ON_START: "true"
+      RUN_IMPORT_ON_START: "false"
+      USE_TEST_DATA: ${USE_TEST_DATA:-true}
     volumes:
       - ../log:/app/log
 

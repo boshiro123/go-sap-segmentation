@@ -8,8 +8,9 @@ RUN go mod download
 
 COPY . .
 
-RUN go install github.com/swaggo/swag/cmd/swag@latest && \
-    /go/bin/swag init -g cmd/sap_segmentationd/main.go -o docs/generated --ot json --parseInternal
+# Убираем автоматическую генерацию Swagger
+# RUN go install github.com/swaggo/swag/cmd/swag@latest && \
+#     /go/bin/swag init -g cmd/sap_segmentationd/main.go -o docs/generated --ot json --parseInternal
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o sap_segmentationd ./cmd/sap_segmentationd
 
@@ -21,10 +22,10 @@ RUN apk --no-cache add ca-certificates tzdata
 
 COPY --from=builder /build/sap_segmentationd .
 
-COPY --from=builder /build/docs/generated /app/docs/generated
-
-RUN mkdir -p /app/log
+# Создаем необходимые директории
+RUN mkdir -p /app/docs/generated /app/log
 
 ENV ENV=prod
+ENV USE_TEST_DATA=true
 
 CMD ["./sap_segmentationd"] 

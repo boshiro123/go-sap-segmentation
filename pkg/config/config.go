@@ -29,8 +29,9 @@ type Config struct {
 	}
 
 	Import struct {
-		BatchSize        int `envconfig:"IMPORT_BATCH_SIZE" default:"50"`
-		LogCleanupMaxAge int `envconfig:"LOG_CLEANUP_MAX_AGE" default:"7"`
+		BatchSize        int  `envconfig:"IMPORT_BATCH_SIZE" default:"50"`
+		LogCleanupMaxAge int  `envconfig:"LOG_CLEANUP_MAX_AGE" default:"7"`
+		UseTestData      bool `envconfig:"USE_TEST_DATA" default:"true"`
 	}
 
 	App struct {

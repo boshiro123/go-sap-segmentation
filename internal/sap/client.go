@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
+	"math/rand"
 	"net/http"
 	"time"
 
@@ -14,13 +15,14 @@ import (
 )
 
 type Client struct {
-	httpClient *http.Client
-	baseURL    string
-	authHeader string
-	userAgent  string
-	batchSize  int
-	interval   time.Duration
-	logger     *slog.Logger
+	httpClient  *http.Client
+	baseURL     string
+	authHeader  string
+	userAgent   string
+	batchSize   int
+	interval    time.Duration
+	logger      *slog.Logger
+	useTestData bool
 }
 
 type Response struct {
@@ -35,16 +37,48 @@ func NewClient(cfg *config.Config, logger *slog.Logger) *Client {
 		httpClient: &http.Client{
 			Timeout: cfg.Connection.Timeout,
 		},
-		baseURL:    cfg.Connection.URI,
-		authHeader: fmt.Sprintf("Basic %s", auth),
-		userAgent:  cfg.Connection.UserAgent,
-		batchSize:  cfg.Import.BatchSize,
-		interval:   cfg.Connection.Interval,
-		logger:     logger,
+		baseURL:     cfg.Connection.URI,
+		authHeader:  fmt.Sprintf("Basic %s", auth),
+		userAgent:   cfg.Connection.UserAgent,
+		batchSize:   cfg.Import.BatchSize,
+		interval:    cfg.Connection.Interval,
+		logger:      logger,
+		useTestData: cfg.Import.UseTestData,
 	}
 }
 
+// generateTestData создает тестовые данные для разработки и тестирования
+func (c *Client) generateTestData() []*models.Segmentation {
+	c.logger.Info("generating test data for development")
+
+	// Инициализируем генератор случайных чисел
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+
+	// Генерируем случайные данные для тестирования
+	testData := make([]*models.Segmentation, 30)
+	prefixes := []string{"SAP-", "SEG-", "ADR-"}
+	segments := []string{"Premium", "Standard", "VIP", "Corporate", "SMB"}
+
+	for i := 0; i < 30; i++ {
+		prefix := prefixes[r.Intn(len(prefixes))]
+		segmentIdx := r.Intn(len(segments))
+
+		testData[i] = &models.Segmentation{
+			AddressSapID: fmt.Sprintf("%s%03d", prefix, i+1),
+			AdrSegment:   segments[segmentIdx],
+			SegmentID:    int64(1000 + i),
+		}
+	}
+
+	return testData
+}
+
 func (c *Client) FetchSegmentation() ([]*models.Segmentation, error) {
+	if c.useTestData {
+		c.logger.Info("using test data as configured by USE_TEST_DATA=true")
+		return c.generateTestData(), nil
+	}
+
 	var allSegments []*models.Segmentation
 	offset := 0
 
@@ -75,6 +109,16 @@ func (c *Client) FetchSegmentation() ([]*models.Segmentation, error) {
 			"status", testResp.StatusCode,
 			"body", string(bodyBytes),
 		)
+
+		// Если получена ошибка 401 Unauthorized, возвращаем тестовые данные
+		if testResp.StatusCode == http.StatusUnauthorized {
+			c.logger.Warn("SAP API is not available, using test data",
+				"error", nil,
+				"status", testResp.StatusCode,
+			)
+			return c.generateTestData(), nil
+		}
+
 		return nil, fmt.Errorf("error response from SAP API: status=%d, body=%s",
 			testResp.StatusCode, string(bodyBytes))
 	}
@@ -105,6 +149,16 @@ func (c *Client) FetchSegmentation() ([]*models.Segmentation, error) {
 
 		if resp.StatusCode != http.StatusOK {
 			bodyBytes, _ := io.ReadAll(resp.Body)
+
+			// Если получена ошибка 401 Unauthorized на этом этапе, также используем тестовые данные
+			if resp.StatusCode == http.StatusUnauthorized {
+				c.logger.Warn("SAP API is not available during fetching, using test data",
+					"error", nil,
+					"status", resp.StatusCode,
+				)
+				return c.generateTestData(), nil
+			}
+
 			return nil, fmt.Errorf("error response from SAP API: status=%d, body=%s",
 				resp.StatusCode, string(bodyBytes))
 		}
@@ -128,12 +182,12 @@ func (c *Client) FetchSegmentation() ([]*models.Segmentation, error) {
 		}
 
 		segments := make([]*models.Segmentation, 0)
-		for i, item := range response.Items {
-			segments[i] = &models.Segmentation{
+		for _, item := range response.Items {
+			segments = append(segments, &models.Segmentation{
 				AddressSapID: item.AddressSapID,
 				AdrSegment:   item.AdrSegment,
 				SegmentID:    item.SegmentID,
-			}
+			})
 		}
 
 		allSegments = append(allSegments, segments...)

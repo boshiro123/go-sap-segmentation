@@ -1,185 +1,659 @@
-[13:43:43.634] INFO: starting log cleanup {
-  "cutoff_time": "2025-04-01T13:25:43Z",
+[11:08:08.238] INFO: starting log cleanup {
+  "cutoff_time": "2025-04-02T11:40:08Z",
   "log_dir": "log",
   "max_age_days": 7
 }
-[13:43:43.635] INFO: log cleanup completed {
+[11:08:08.238] INFO: log cleanup completed {
   "removed_files": 0
 }
-[13:43:43.635] INFO: connecting to database {
+[11:08:08.239] INFO: connecting to database {
   "dbname": "mesh_group",
   "host": "postgres",
   "port": "5432",
   "user": "postgres"
 }
-[13:43:43.639] INFO: successfully connected to database 
-[13:43:43.639] INFO: starting API server {
+[11:08:08.242] INFO: successfully connected to database 
+[11:08:08.242] INFO: starting API server {
   "address": ":8080"
 }
-[13:43:43.639] INFO: starting initial import from SAP API 
-[13:43:43.641] INFO: fetching data from SAP API {
+[11:08:08.243] INFO: starting initial import from SAP API 
+[11:08:08.243] INFO: fetching data from SAP API {
   "limit": 50,
   "offset": 0,
   "url": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation"
 }
-[13:44:44.399] ERROR: failed to fetch segmentation data {
+[11:08:08.517] ERROR: failed to fetch segmentation data {
   "error": "error response from SAP API: status=401, body=\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003cstyle type=\"text/css\" media=\"screen\"\u003e\nfooter,header{display:block;}\nhtml{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}\nbody{margin:0;}\nh1{font-size:2em;margin:0.67em 0;}\npre{font-family:monospace, serif;font-size:1em;}\npre{white-space:pre-wrap;}\nimg{border:0;}\nhtml{font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Helvetica Neue\",Arial,sans-serif;font-size:0.875em;}\nbody{background-color:#f9fafa;color:#333;}\na{color:#045fab;line-height:inherit;text-decoration:none;}\na:visited{color:#045fab;}\na:hover,a:focus{text-decoration:underline;}\na:active{color:#034379;font-weight:normal;border-radius:1px;}\nh1,h3{color:#252525;font-family:inherit;font-style:normal;font-weight:normal;margin:8px 0;padding:0 0 2px;}\nh1{font-size:2.429rem;font-weight:200;}\nh3{font-size:1.429rem;font-weight:300;}\nul{margin:12px 0;padding-left:40px;}\nul li{line-height:1.25;}\n.oj-text-sm{font-size:0.857rem;}\n.oj-text-secondary-color{color:#4d4d4d;}\n.oj-margin{margin:10px;}\n.oj-panel{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;padding:0.8571rem;position:relative;}\n.oj-panel-alt4{background-color:#ffe4e1;border-color:#ffcdc8;}\n.oj-flex-bar{position:relative;}\n.oj-flex-bar,.oj-flex-bar-middle,.oj-flex-bar-end{box-sizing:border-box;display:-webkit-flex;display:flex;}\n.oj-flex-bar-middle{-webkit-flex:auto;flex:auto;}\nhtml:not([dir=\"rtl\"]) .oj-flex-bar-end{margin-left:auto;}\n@media print, screen{\n.oj-sm-align-items-center{-webkit-align-items:center;align-items:center;}\n}\n.oj-web-applayout-body{overflow-y:scroll;}\n.oj-web-applayout-page{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;box-sizing:border-box;min-height:100vh;}\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){\n.oj-web-applayout-page{height:100vh;min-height:0;}\n}\n.oj-web-applayout-max-width{margin-left:auto;margin-right:auto;width:100%;max-width:1440px;box-sizing:border-box;}\n.oj-web-applayout-header,.oj-web-applayout-footer{-webkit-flex:0 0 auto;flex:0 0 auto;}\n.oj-web-applayout-header{background-color:#f0f0f0;box-shadow:0 3px 3px rgba(0,0,0,0.1);}\n.oj-web-applayout-header\u003ediv:first-child{box-sizing:border-box;}\n.oj-web-applayout-header\u003ediv:first-child::before{content:\"\";display:inline-block;min-height:3.143rem;visibility:hidden;}\n.oj-web-applayout-header\u003ediv,.oj-web-applayout-footer\u003ediv{padding-left:20px;padding-right:20px;}\n.oj-web-applayout-header-title{font-size:1.143rem;font-weight:normal;color:#4d4d4d;line-height:0;padding:0;margin:0;}\n.oj-web-applayout-content{-webkit-flex:1 0 auto;flex:1 0 auto;padding:10px;}\n.oj-web-applayout-footer{min-height:3.571rem;box-sizing:border-box;border-top:1px solid #d9dfe3;background-color:#f0f0f0;padding-top:10px;padding-bottom:10px;}\n.oj-web-applayout-footer-item{box-sizing:border-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex:0 1 auto;flex:0 1 auto;}\n@media screen and (max-width: 767px){\n.oj-web-applayout-footer-item{-webkit-justify-content:center;justify-content:center;text-align:center;}\n}\n.oj-web-applayout-footer ul{margin:0;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer ul{padding-left:0;}\n.oj-web-applayout-footer li{list-style:none;display:inline-block;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li{margin-right:10px;margin-left:0;padding-right:10px;border-right:1px solid #d9dfe3;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li:last-child{margin-right:0;padding-right:0;border-right:none;}\n.traceBox{overflow-x:auto;overflow-y:auto;max-height:60vh;padding:0.8571rem!important;margin:0;}\n.panelCollapsible{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;position:relative;}\n.titleCollapsible{padding:0.8571rem!important;border:1px solid #d6dfe6;border-width:0 0 1px;margin:0;}\n@font-face{font-family:\"Segoe UI\";font-weight:100;src:local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:200;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:300;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:400;src:local(\"Segoe UI\");}\n@font-face{font-family:\"Segoe UI\";font-weight:500;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:600;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:700;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:800;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:900;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:100;src:local(\"HelveticaNeue-Ultralight\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:200;src:local(\"HelveticaNeue-Thin\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:300;src:local(\"HelveticaNeue-Light\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:400;src:local(\"Helvetica Neue\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:500;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:600;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:700;src:local(\"HelveticaNeue-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:800;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:900;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Arial\";font-weight:100;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:200;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:300;src:local(\"sans-serif-light\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:400;src:local(\"sans-serif-regular\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:500;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:600;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:700;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:800;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:900;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n\t\n\t.oj-collapsible {\n\t    margin-bottom: 0 !important;\n\t}\n\t\n\t.header-grid {\n    \tdisplay: grid;\n\t    grid-template-columns: auto 1fr;\n\t    grid-column-gap: 1rem;\n\t    grid-template-areas: \"ords-logo oracle-logo\" \"ords-logo product-name\";\n    }\n    .ords-logo {\n    \tgrid-area: ords-logo;\n    }\n    .oracle-logo {\n    \tgrid-area: oracle-logo;\n    \tpadding-top: 0.2rem;\n    }\n    .product-name {\n    \tgrid-area: product-name;\n    \tfont-size: 1rem;\n    \tpadding-bottom: 0.2rem;\n    }\n\n\u003c/style\u003e\n\u003chead\u003e\n\t\u003ctitle\u003eUnauthorized\u003c/title\u003e\n\t\n\t\u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n\u003c/head\u003e\n\n\u003cbody class=\"oj-web-applayout-body\"\u003e\n    \u003cdiv id=\"globalBody\" class=\"oj-web-applayout-page\"\u003e\n    \n      \u003cheader role=\"banner\" class=\"oj-web-applayout-header\"\u003e\n        \u003cdiv class=\"oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center oj-web-applayout-content\"\u003e\n          \u003cdiv class=\"oj-sm-align-items-center\"\u003e\n            \u003ch1 class=\"header-grid oj-web-applayout-header-title\" title=\"Oracle REST Data Services\"\u003e\n            \t\u003ca class=\"ords-logo\" style=\"\" href=\"../\"\u003e\u003cimg style=\"height:40px;\" src=\"data:image/png;base64,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\" /\u003e\u003c/a\u003e\n\t            \n\t\t\t\t\u003cdiv class=\"oracle-logo\"\u003e\n\t\t\t\t\t\u003c?xml version=\"1.0\" encoding=\"utf-8\"?\u003e\n\t\t\t\t\t\u003c!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"\u003e\n\t\t\t\t\t\u003csvg version=\"1.1\" id=\"oracle\" xmlns:svg=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\t xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"104px\" height=\"17px\"\n\t\t\t\t\t\t viewBox=\"263.42 38.57 136 17\" enable-background=\"new 263.42 38.57 136 17\" xml:space=\"preserve\"\u003e\n\t\t\t\t\t\u003cpath id=\"logo\" fill=\"#000000\" d=\"M320.07,49.63h8.64l-4.57-7.35l-8.38,13.29h-3.82l10.2-15.96c0.44-0.64,1.18-1.04,2-1.04\n\t\t\t\t\t\tc0.79,0,1.53,0.38,1.96,1.01l10.24,15.99h-3.82l-1.8-2.97h-8.75L320.07,49.63z M359.7,52.6V38.74h-3.24v15.22\n\t\t\t\t\t\tc0,0.42,0.16,0.82,0.47,1.13c0.31,0.31,0.72,0.48,1.18,0.48h14.77l1.91-2.97H359.7z M306.13,50.12c3.14,0,5.7-2.54,5.7-5.68\n\t\t\t\t\t\tc0-3.14-2.55-5.7-5.7-5.7h-14.17v16.84h3.24V41.71h10.71c1.5,0,2.71,1.22,2.71,2.73s-1.21,2.73-2.71,2.73l-9.13-0.01l9.67,8.42h4.7\n\t\t\t\t\t\tl-6.5-5.46H306.13z M272.04,55.57c-4.65,0-8.42-3.76-8.42-8.41c0-4.65,3.77-8.42,8.42-8.42h9.78c4.65,0,8.42,3.78,8.42,8.42\n\t\t\t\t\t\tc0,4.65-3.77,8.41-8.42,8.41H272.04z M281.61,52.6c3.01,0,5.45-2.43,5.45-5.44c0-3.01-2.44-5.46-5.45-5.46h-9.35\n\t\t\t\t\t\tc-3.01,0-5.45,2.45-5.45,5.46c0,3.01,2.44,5.44,5.45,5.44H281.61z M343.1,55.57c-4.65,0-8.42-3.76-8.42-8.41\n\t\t\t\t\t\tc0-4.65,3.78-8.42,8.42-8.42h11.62l-1.89,2.97h-9.51c-3.01,0-5.46,2.45-5.46,5.46c0,3.01,2.45,5.44,5.46,5.44h11.68l-1.91,2.97\n\t\t\t\t\t\tL343.1,55.57L343.1,55.57z M382.69,52.6c-2.49,0-4.59-1.67-5.24-3.96h13.84l1.91-2.97h-15.75c0.64-2.28,2.75-3.96,5.24-3.96h9.5\n\t\t\t\t\t\tl1.92-2.97h-11.64c-4.65,0-8.42,3.78-8.42,8.42s3.78,8.41,8.42,8.41h9.98l1.91-2.97L382.69,52.6\"/\u003e\n\t\t\t\t\t\u003cpath id=\"reg\" fill=\"#000000\" d=\"M395.85,40.52c0-0.82,0.66-1.48,1.48-1.48c0.83,0,1.49,0.66,1.49,1.48c0,0.83-0.66,1.49-1.49,1.49\n\t\t\t\t\t\tC396.51,42.02,395.85,41.36,395.85,40.52z M397.33,42.43c1.05,0,1.89-0.85,1.89-1.89s-0.85-1.89-1.89-1.89\n\t\t\t\t\t\tc-1.03,0-1.88,0.85-1.88,1.89S396.29,42.43,397.33,42.43z M397.15,39.41c0.29,0,0.42,0.01,0.55,0.07c0.38,0.12,0.42,0.46,0.42,0.59\n\t\t\t\t\t\tc0,0.03,0,0.09-0.03,0.17c-0.01,0.08-0.07,0.24-0.25,0.36c-0.03,0.01-0.04,0.03-0.09,0.05l0.48,0.87h-0.47l-0.43-0.81h-0.3v0.81\n\t\t\t\t\t\th-0.42v-2.12H397.15z M397.3,40.38c0.13-0.01,0.27-0.01,0.35-0.13c0.04-0.05,0.05-0.11,0.05-0.19c0-0.11-0.07-0.2-0.16-0.25\n\t\t\t\t\t\tc-0.09-0.04-0.19-0.04-0.39-0.04h-0.12v0.62H397.3\"/\u003e\n\t\t\t\t\t\u003c/svg\u003e\n\t\t\t\t\u003c/div\u003e\n\t\t\t\t\u003cspan class=\"product-name\"\u003eREST Data Services\u003c/span\u003e\n\t\t    \u003c/h1\u003e\n          \u003c/div\u003e\n          \u003cdiv class=\"oj-flex-bar-end\"\u003e\n            \u003c!-- Responsive Toolbar --\u003e\n            \n          \u003c/div\u003e\n        \u003c/div\u003e\n      \u003c/header\u003e\n      \u003cdiv role=\"main\" class=\"oj-web-applayout-max-width oj-web-applayout-content\"\u003e\n      \n      \t\t\u003cdiv class=\"oj-panel oj-margin oj-panel-alt4\"\u003e\n\t\t\t\t\u003ch3\u003e\n\t\t\t\t\t\u003cspan style=\"font-weight: bold;\n\t\t\t\t\t\t\t    padding-left: 0.4em;\n\t\t\t\t\t\t\t    color: #e53935;\n\t\t\t\t\t\t\t    font-size: 1.7rem;\"\u003e\n\t\t\t\t\t    401\n\t\t\t\t    \u003c/span\u003e\n\t\t\t\t\t\u003cspan style=\"padding-left: 0.4em;\"\u003eUnauthorized\u003c/span\u003e\n\t\t\t\t\u003c/h3\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\u003cdiv id=\"reasons\" class=\"oj-panel oj-margin\"\u003e\n\t\t\t\t\u003cul\u003e\n\t\t\t\t\t\n\t\t\t\t\u003c/ul\u003e\n\t\t\t\t\n\t        \t\u003ch4 style=\"padding-left: 0.4em;\"\u003e\n\tAccess to this resource is protected. Please \u003ca href=\"https://bsm.api.iql.ru/ords/bsm/sign-in/?r=segmentation%2Fget_segmentation%3Fp_limit%3D50%26p_offset%3D0\" style=\"font-weight: 500;\"\u003esign in\u003c/a\u003e to access this resource.\n\u003c/h4\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\n\t\t\t\n      \u003c/div\u003e\n      \u003cfooter class=\"oj-web-applayout-footer\" role=\"contentinfo\"\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width\"\u003e\n          \u003cul\u003e\n            \u003cli\u003e\u003ca id=\"aboutOracle\" href=\"http://www.oracle.com/us/corporate/index.html#menu-about\"\u003e\n\t\t About Oracle\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"contactUs\" href=\"http://www.oracle.com/us/corporate/contact/index.html\"\u003e\n\t\t Contact Us\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"legalNotices\" href=\"http://www.oracle.com/us/legal/index.html\"\u003e\n\t\t Legal Notices\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"termsOfUse\" href=\"http://www.oracle.com/us/legal/terms/index.html\"\u003e\n\t\t Terms Of Use\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"yourPrivacyRights\" href=\"http://www.oracle.com/us/legal/privacy/index.html\"\u003e\n\t\t Your Privacy Rights\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n          \u003c/ul\u003e\n        \u003c/div\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-secondary-color oj-text-sm\"\u003e\n            Copyright © 2009, 2019 Oracle and/or its affiliates All rights reserved.\n        \u003c/div\u003e\n      \u003c/footer\u003e\n    \u003c/div\u003e\n    \u003cscript\u003e\n       function noReason() {\n\t\tif(document.getElementById(\"reasons\").children[1] !== undefined) {\n\t\t\tdocument.getElementById(\"reasons\").removeChild(document.getElementById(\"reasons\").children[0]);\n\t\t}\n\t\telse if(document.getElementById(\"reasons\").children[0].children[0] === undefined){\n\t\t\tdocument.getElementById(\"reasons\").remove();\n\t\t}\n       }\n       \n       noReason();\n    \u003c/script\u003e\n\u003c/body\u003e\n\n\u003c/html\u003e\n"
 }
-[13:45:45.553] INFO: request started {
+[11:09:09.220] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}
+[11:09:09.224] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
+}
+[11:16:16.128] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/index.html"
 }
-[13:45:45.554] INFO: request completed {
+[11:16:16.129] INFO: request completed {
   "method": "GET",
   "path": "/swagger/index.html",
   "status": 200
 }
-[13:45:45.571] INFO: request started {
-  "ip": "192.168.0.1",
-  "method": "GET",
-  "path": "/swagger/swagger-ui-bundle.js"
-}
-[13:45:45.571] INFO: request started {
-  "ip": "192.168.0.1",
-  "method": "GET",
-  "path": "/swagger/swagger-ui-standalone-preset.js"
-}
-[13:45:45.574] INFO: request completed {
-  "method": "GET",
-  "path": "/swagger/swagger-ui-bundle.js",
-  "status": 200
-}
-[13:45:45.573] INFO: request started {
+[11:16:16.149] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/swagger-ui.css"
 }
-[13:45:45.575] INFO: request completed {
-  "method": "GET",
-  "path": "/swagger/swagger-ui-standalone-preset.js",
-  "status": 200
-}
-[13:45:45.576] INFO: request completed {
+[11:16:16.150] INFO: request completed {
   "method": "GET",
   "path": "/swagger/swagger-ui.css",
   "status": 200
 }
-[13:45:45.662] INFO: request started {
+[11:16:16.156] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}
+[11:16:16.158] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}
+[11:16:16.160] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}
+[11:16:16.161] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}
+[11:16:16.205] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/doc.json"
 }
-[13:45:45.663] INFO: request completed {
+[11:16:16.206] INFO: request completed {
   "method": "GET",
   "path": "/swagger/doc.json",
   "status": 200
 }
-[13:45:45.678] INFO: request started {
+[11:16:16.207] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/favicon-32x32.png"
 }
-[13:45:45.678] INFO: request completed {
+[11:16:16.208] INFO: request completed {
   "method": "GET",
   "path": "/swagger/favicon-32x32.png",
   "status": 200
 }
-[13:48:48.851] INFO: request started {
+[11:22:22.700] INFO: request started {
   "ip": "192.168.0.1",
-  "method": "POST",
-  "path": "/api/segmentation/import"
+  "method": "GET",
+  "path": "/api/segmentation/"
 }
-[13:48:48.851] INFO: starting segmentation import 
-[13:48:48.851] INFO: fetching data from SAP API {
-  "limit": 50,
-  "offset": 0,
-  "url": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation"
+[11:22:22.701] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
 }
-[13:48:48.963] ERROR: failed to fetch segmentation {
-  "error": "error response from SAP API: status=401, body=\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003cstyle type=\"text/css\" media=\"screen\"\u003e\nfooter,header{display:block;}\nhtml{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}\nbody{margin:0;}\nh1{font-size:2em;margin:0.67em 0;}\npre{font-family:monospace, serif;font-size:1em;}\npre{white-space:pre-wrap;}\nimg{border:0;}\nhtml{font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Helvetica Neue\",Arial,sans-serif;font-size:0.875em;}\nbody{background-color:#f9fafa;color:#333;}\na{color:#045fab;line-height:inherit;text-decoration:none;}\na:visited{color:#045fab;}\na:hover,a:focus{text-decoration:underline;}\na:active{color:#034379;font-weight:normal;border-radius:1px;}\nh1,h3{color:#252525;font-family:inherit;font-style:normal;font-weight:normal;margin:8px 0;padding:0 0 2px;}\nh1{font-size:2.429rem;font-weight:200;}\nh3{font-size:1.429rem;font-weight:300;}\nul{margin:12px 0;padding-left:40px;}\nul li{line-height:1.25;}\n.oj-text-sm{font-size:0.857rem;}\n.oj-text-secondary-color{color:#4d4d4d;}\n.oj-margin{margin:10px;}\n.oj-panel{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;padding:0.8571rem;position:relative;}\n.oj-panel-alt4{background-color:#ffe4e1;border-color:#ffcdc8;}\n.oj-flex-bar{position:relative;}\n.oj-flex-bar,.oj-flex-bar-middle,.oj-flex-bar-end{box-sizing:border-box;display:-webkit-flex;display:flex;}\n.oj-flex-bar-middle{-webkit-flex:auto;flex:auto;}\nhtml:not([dir=\"rtl\"]) .oj-flex-bar-end{margin-left:auto;}\n@media print, screen{\n.oj-sm-align-items-center{-webkit-align-items:center;align-items:center;}\n}\n.oj-web-applayout-body{overflow-y:scroll;}\n.oj-web-applayout-page{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;box-sizing:border-box;min-height:100vh;}\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){\n.oj-web-applayout-page{height:100vh;min-height:0;}\n}\n.oj-web-applayout-max-width{margin-left:auto;margin-right:auto;width:100%;max-width:1440px;box-sizing:border-box;}\n.oj-web-applayout-header,.oj-web-applayout-footer{-webkit-flex:0 0 auto;flex:0 0 auto;}\n.oj-web-applayout-header{background-color:#f0f0f0;box-shadow:0 3px 3px rgba(0,0,0,0.1);}\n.oj-web-applayout-header\u003ediv:first-child{box-sizing:border-box;}\n.oj-web-applayout-header\u003ediv:first-child::before{content:\"\";display:inline-block;min-height:3.143rem;visibility:hidden;}\n.oj-web-applayout-header\u003ediv,.oj-web-applayout-footer\u003ediv{padding-left:20px;padding-right:20px;}\n.oj-web-applayout-header-title{font-size:1.143rem;font-weight:normal;color:#4d4d4d;line-height:0;padding:0;margin:0;}\n.oj-web-applayout-content{-webkit-flex:1 0 auto;flex:1 0 auto;padding:10px;}\n.oj-web-applayout-footer{min-height:3.571rem;box-sizing:border-box;border-top:1px solid #d9dfe3;background-color:#f0f0f0;padding-top:10px;padding-bottom:10px;}\n.oj-web-applayout-footer-item{box-sizing:border-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex:0 1 auto;flex:0 1 auto;}\n@media screen and (max-width: 767px){\n.oj-web-applayout-footer-item{-webkit-justify-content:center;justify-content:center;text-align:center;}\n}\n.oj-web-applayout-footer ul{margin:0;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer ul{padding-left:0;}\n.oj-web-applayout-footer li{list-style:none;display:inline-block;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li{margin-right:10px;margin-left:0;padding-right:10px;border-right:1px solid #d9dfe3;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li:last-child{margin-right:0;padding-right:0;border-right:none;}\n.traceBox{overflow-x:auto;overflow-y:auto;max-height:60vh;padding:0.8571rem!important;margin:0;}\n.panelCollapsible{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;position:relative;}\n.titleCollapsible{padding:0.8571rem!important;border:1px solid #d6dfe6;border-width:0 0 1px;margin:0;}\n@font-face{font-family:\"Segoe UI\";font-weight:100;src:local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:200;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:300;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:400;src:local(\"Segoe UI\");}\n@font-face{font-family:\"Segoe UI\";font-weight:500;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:600;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:700;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:800;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:900;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:100;src:local(\"HelveticaNeue-Ultralight\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:200;src:local(\"HelveticaNeue-Thin\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:300;src:local(\"HelveticaNeue-Light\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:400;src:local(\"Helvetica Neue\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:500;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:600;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:700;src:local(\"HelveticaNeue-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:800;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:900;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Arial\";font-weight:100;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:200;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:300;src:local(\"sans-serif-light\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:400;src:local(\"sans-serif-regular\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:500;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:600;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:700;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:800;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:900;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n\t\n\t.oj-collapsible {\n\t    margin-bottom: 0 !important;\n\t}\n\t\n\t.header-grid {\n    \tdisplay: grid;\n\t    grid-template-columns: auto 1fr;\n\t    grid-column-gap: 1rem;\n\t    grid-template-areas: \"ords-logo oracle-logo\" \"ords-logo product-name\";\n    }\n    .ords-logo {\n    \tgrid-area: ords-logo;\n    }\n    .oracle-logo {\n    \tgrid-area: oracle-logo;\n    \tpadding-top: 0.2rem;\n    }\n    .product-name {\n    \tgrid-area: product-name;\n    \tfont-size: 1rem;\n    \tpadding-bottom: 0.2rem;\n    }\n\n\u003c/style\u003e\n\u003chead\u003e\n\t\u003ctitle\u003eUnauthorized\u003c/title\u003e\n\t\n\t\u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n\u003c/head\u003e\n\n\u003cbody class=\"oj-web-applayout-body\"\u003e\n    \u003cdiv id=\"globalBody\" class=\"oj-web-applayout-page\"\u003e\n    \n      \u003cheader role=\"banner\" class=\"oj-web-applayout-header\"\u003e\n        \u003cdiv class=\"oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center oj-web-applayout-content\"\u003e\n          \u003cdiv class=\"oj-sm-align-items-center\"\u003e\n            \u003ch1 class=\"header-grid oj-web-applayout-header-title\" title=\"Oracle REST Data Services\"\u003e\n            \t\u003ca class=\"ords-logo\" style=\"\" href=\"../\"\u003e\u003cimg style=\"height:40px;\" src=\"data:image/png;base64,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\" /\u003e\u003c/a\u003e\n\t            \n\t\t\t\t\u003cdiv class=\"oracle-logo\"\u003e\n\t\t\t\t\t\u003c?xml version=\"1.0\" encoding=\"utf-8\"?\u003e\n\t\t\t\t\t\u003c!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"\u003e\n\t\t\t\t\t\u003csvg version=\"1.1\" id=\"oracle\" xmlns:svg=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\t xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"104px\" height=\"17px\"\n\t\t\t\t\t\t viewBox=\"263.42 38.57 136 17\" enable-background=\"new 263.42 38.57 136 17\" xml:space=\"preserve\"\u003e\n\t\t\t\t\t\u003cpath id=\"logo\" fill=\"#000000\" d=\"M320.07,49.63h8.64l-4.57-7.35l-8.38,13.29h-3.82l10.2-15.96c0.44-0.64,1.18-1.04,2-1.04\n\t\t\t\t\t\tc0.79,0,1.53,0.38,1.96,1.01l10.24,15.99h-3.82l-1.8-2.97h-8.75L320.07,49.63z M359.7,52.6V38.74h-3.24v15.22\n\t\t\t\t\t\tc0,0.42,0.16,0.82,0.47,1.13c0.31,0.31,0.72,0.48,1.18,0.48h14.77l1.91-2.97H359.7z M306.13,50.12c3.14,0,5.7-2.54,5.7-5.68\n\t\t\t\t\t\tc0-3.14-2.55-5.7-5.7-5.7h-14.17v16.84h3.24V41.71h10.71c1.5,0,2.71,1.22,2.71,2.73s-1.21,2.73-2.71,2.73l-9.13-0.01l9.67,8.42h4.7\n\t\t\t\t\t\tl-6.5-5.46H306.13z M272.04,55.57c-4.65,0-8.42-3.76-8.42-8.41c0-4.65,3.77-8.42,8.42-8.42h9.78c4.65,0,8.42,3.78,8.42,8.42\n\t\t\t\t\t\tc0,4.65-3.77,8.41-8.42,8.41H272.04z M281.61,52.6c3.01,0,5.45-2.43,5.45-5.44c0-3.01-2.44-5.46-5.45-5.46h-9.35\n\t\t\t\t\t\tc-3.01,0-5.45,2.45-5.45,5.46c0,3.01,2.44,5.44,5.45,5.44H281.61z M343.1,55.57c-4.65,0-8.42-3.76-8.42-8.41\n\t\t\t\t\t\tc0-4.65,3.78-8.42,8.42-8.42h11.62l-1.89,2.97h-9.51c-3.01,0-5.46,2.45-5.46,5.46c0,3.01,2.45,5.44,5.46,5.44h11.68l-1.91,2.97\n\t\t\t\t\t\tL343.1,55.57L343.1,55.57z M382.69,52.6c-2.49,0-4.59-1.67-5.24-3.96h13.84l1.91-2.97h-15.75c0.64-2.28,2.75-3.96,5.24-3.96h9.5\n\t\t\t\t\t\tl1.92-2.97h-11.64c-4.65,0-8.42,3.78-8.42,8.42s3.78,8.41,8.42,8.41h9.98l1.91-2.97L382.69,52.6\"/\u003e\n\t\t\t\t\t\u003cpath id=\"reg\" fill=\"#000000\" d=\"M395.85,40.52c0-0.82,0.66-1.48,1.48-1.48c0.83,0,1.49,0.66,1.49,1.48c0,0.83-0.66,1.49-1.49,1.49\n\t\t\t\t\t\tC396.51,42.02,395.85,41.36,395.85,40.52z M397.33,42.43c1.05,0,1.89-0.85,1.89-1.89s-0.85-1.89-1.89-1.89\n\t\t\t\t\t\tc-1.03,0-1.88,0.85-1.88,1.89S396.29,42.43,397.33,42.43z M397.15,39.41c0.29,0,0.42,0.01,0.55,0.07c0.38,0.12,0.42,0.46,0.42,0.59\n\t\t\t\t\t\tc0,0.03,0,0.09-0.03,0.17c-0.01,0.08-0.07,0.24-0.25,0.36c-0.03,0.01-0.04,0.03-0.09,0.05l0.48,0.87h-0.47l-0.43-0.81h-0.3v0.81\n\t\t\t\t\t\th-0.42v-2.12H397.15z M397.3,40.38c0.13-0.01,0.27-0.01,0.35-0.13c0.04-0.05,0.05-0.11,0.05-0.19c0-0.11-0.07-0.2-0.16-0.25\n\t\t\t\t\t\tc-0.09-0.04-0.19-0.04-0.39-0.04h-0.12v0.62H397.3\"/\u003e\n\t\t\t\t\t\u003c/svg\u003e\n\t\t\t\t\u003c/div\u003e\n\t\t\t\t\u003cspan class=\"product-name\"\u003eREST Data Services\u003c/span\u003e\n\t\t    \u003c/h1\u003e\n          \u003c/div\u003e\n          \u003cdiv class=\"oj-flex-bar-end\"\u003e\n            \u003c!-- Responsive Toolbar --\u003e\n            \n          \u003c/div\u003e\n        \u003c/div\u003e\n      \u003c/header\u003e\n      \u003cdiv role=\"main\" class=\"oj-web-applayout-max-width oj-web-applayout-content\"\u003e\n      \n      \t\t\u003cdiv class=\"oj-panel oj-margin oj-panel-alt4\"\u003e\n\t\t\t\t\u003ch3\u003e\n\t\t\t\t\t\u003cspan style=\"font-weight: bold;\n\t\t\t\t\t\t\t    padding-left: 0.4em;\n\t\t\t\t\t\t\t    color: #e53935;\n\t\t\t\t\t\t\t    font-size: 1.7rem;\"\u003e\n\t\t\t\t\t    401\n\t\t\t\t    \u003c/span\u003e\n\t\t\t\t\t\u003cspan style=\"padding-left: 0.4em;\"\u003eUnauthorized\u003c/span\u003e\n\t\t\t\t\u003c/h3\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\u003cdiv id=\"reasons\" class=\"oj-panel oj-margin\"\u003e\n\t\t\t\t\u003cul\u003e\n\t\t\t\t\t\n\t\t\t\t\u003c/ul\u003e\n\t\t\t\t\n\t        \t\u003ch4 style=\"padding-left: 0.4em;\"\u003e\n\tAccess to this resource is protected. Please \u003ca href=\"https://bsm.api.iql.ru/ords/bsm/sign-in/?r=segmentation%2Fget_segmentation%3Fp_limit%3D50%26p_offset%3D0\" style=\"font-weight: 500;\"\u003esign in\u003c/a\u003e to access this resource.\n\u003c/h4\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\n\t\t\t\n      \u003c/div\u003e\n      \u003cfooter class=\"oj-web-applayout-footer\" role=\"contentinfo\"\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width\"\u003e\n          \u003cul\u003e\n            \u003cli\u003e\u003ca id=\"aboutOracle\" href=\"http://www.oracle.com/us/corporate/index.html#menu-about\"\u003e\n\t\t About Oracle\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"contactUs\" href=\"http://www.oracle.com/us/corporate/contact/index.html\"\u003e\n\t\t Contact Us\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"legalNotices\" href=\"http://www.oracle.com/us/legal/index.html\"\u003e\n\t\t Legal Notices\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"termsOfUse\" href=\"http://www.oracle.com/us/legal/terms/index.html\"\u003e\n\t\t Terms Of Use\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"yourPrivacyRights\" href=\"http://www.oracle.com/us/legal/privacy/index.html\"\u003e\n\t\t Your Privacy Rights\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n          \u003c/ul\u003e\n        \u003c/div\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-secondary-color oj-text-sm\"\u003e\n            Copyright © 2009, 2019 Oracle and/or its affiliates All rights reserved.\n        \u003c/div\u003e\n      \u003c/footer\u003e\n    \u003c/div\u003e\n    \u003cscript\u003e\n       function noReason() {\n\t\tif(document.getElementById(\"reasons\").children[1] !== undefined) {\n\t\t\tdocument.getElementById(\"reasons\").removeChild(document.getElementById(\"reasons\").children[0]);\n\t\t}\n\t\telse if(document.getElementById(\"reasons\").children[0].children[0] === undefined){\n\t\t\tdocument.getElementById(\"reasons\").remove();\n\t\t}\n       }\n       \n       noReason();\n    \u003c/script\u003e\n\u003c/body\u003e\n\n\u003c/html\u003e\n"
+[11:25:25.145] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
 }
-[13:48:48.964] INFO: request completed {
-  "method": "POST",
-  "path": "/api/segmentation/import",
-  "status": 500
+[11:25:25.146] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
 }
-[13:05:05.879] INFO: request started {
+[11:34:34.772] INFO: starting log cleanup {
+  "cutoff_time": "2025-04-02T11:41:34Z",
+  "log_dir": "log",
+  "max_age_days": 7
+}
+[11:34:34.775] INFO: log cleanup completed {
+  "removed_files": 0
+}
+[11:34:34.775] INFO: connecting to database {
+  "dbname": "mesh_group",
+  "host": "postgres",
+  "port": "5432",
+  "user": "postgres"
+}
+[11:34:34.783] INFO: successfully connected to database 
+[11:34:34.784] INFO: starting API server {
+  "address": ":8080"
+}
+[11:45:45.954] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}
+[11:45:45.958] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
+}
+[11:47:47.866] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/index.html"
 }
-[13:05:05.882] INFO: request completed {
+[11:47:47.867] INFO: request completed {
   "method": "GET",
   "path": "/swagger/index.html",
   "status": 200
 }
-[13:05:05.905] INFO: request started {
+[11:47:47.893] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/swagger-ui.css"
 }
-[13:05:05.905] INFO: request completed {
+[11:47:47.894] INFO: request completed {
   "method": "GET",
   "path": "/swagger/swagger-ui.css",
-  "status": 304
+  "status": 200
 }
-[13:05:05.905] INFO: request started {
-  "ip": "192.168.0.1",
-  "method": "GET",
-  "path": "/swagger/swagger-ui-bundle.js"
-}
-[13:05:05.906] INFO: request completed {
-  "method": "GET",
-  "path": "/swagger/swagger-ui-bundle.js",
-  "status": 304
-}
-[13:05:05.906] INFO: request started {
+[11:47:47.896] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/swagger-ui-standalone-preset.js"
 }
-[13:05:05.907] INFO: request completed {
+[11:47:47.898] INFO: request completed {
   "method": "GET",
   "path": "/swagger/swagger-ui-standalone-preset.js",
-  "status": 304
+  "status": 200
 }
-[13:05:05.947] INFO: request started {
+[11:47:47.900] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}
+[11:47:47.902] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}
+[11:47:47.941] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/doc.json"
 }
-[13:05:05.948] INFO: request completed {
+[11:47:47.942] INFO: request completed {
   "method": "GET",
   "path": "/swagger/doc.json",
   "status": 200
 }
-[13:05:05.948] INFO: request started {
+[11:47:47.944] INFO: request started {
   "ip": "192.168.0.1",
   "method": "GET",
   "path": "/swagger/favicon-32x32.png"
 }
-[13:05:05.949] INFO: request completed {
+[11:47:47.944] INFO: request completed {
   "method": "GET",
   "path": "/swagger/favicon-32x32.png",
-  "status": 304
+  "status": 200
 }
-[13:18:18.692] INFO: request started {
+[11:53:53.666] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}
+[11:53:53.667] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
+}
+[11:27:27.137] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}
+[11:27:27.152] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
+}
+[11:32:32.665] INFO: request started {
   "ip": "192.168.0.1",
   "method": "POST",
   "path": "/api/segmentation/import"
 }
-[13:18:18.693] INFO: starting segmentation import 
-[13:18:18.694] INFO: fetching data from SAP API {
+[11:32:32.666] INFO: starting segmentation import 
+[11:32:32.666] INFO: fetching data from SAP API {
   "limit": 50,
   "offset": 0,
   "url": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation"
 }
-[13:18:18.891] ERROR: failed to fetch segmentation {
+[11:32:32.805] ERROR: failed to fetch segmentation {
   "error": "error response from SAP API: status=401, body=\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003cstyle type=\"text/css\" media=\"screen\"\u003e\nfooter,header{display:block;}\nhtml{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}\nbody{margin:0;}\nh1{font-size:2em;margin:0.67em 0;}\npre{font-family:monospace, serif;font-size:1em;}\npre{white-space:pre-wrap;}\nimg{border:0;}\nhtml{font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Helvetica Neue\",Arial,sans-serif;font-size:0.875em;}\nbody{background-color:#f9fafa;color:#333;}\na{color:#045fab;line-height:inherit;text-decoration:none;}\na:visited{color:#045fab;}\na:hover,a:focus{text-decoration:underline;}\na:active{color:#034379;font-weight:normal;border-radius:1px;}\nh1,h3{color:#252525;font-family:inherit;font-style:normal;font-weight:normal;margin:8px 0;padding:0 0 2px;}\nh1{font-size:2.429rem;font-weight:200;}\nh3{font-size:1.429rem;font-weight:300;}\nul{margin:12px 0;padding-left:40px;}\nul li{line-height:1.25;}\n.oj-text-sm{font-size:0.857rem;}\n.oj-text-secondary-color{color:#4d4d4d;}\n.oj-margin{margin:10px;}\n.oj-panel{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;padding:0.8571rem;position:relative;}\n.oj-panel-alt4{background-color:#ffe4e1;border-color:#ffcdc8;}\n.oj-flex-bar{position:relative;}\n.oj-flex-bar,.oj-flex-bar-middle,.oj-flex-bar-end{box-sizing:border-box;display:-webkit-flex;display:flex;}\n.oj-flex-bar-middle{-webkit-flex:auto;flex:auto;}\nhtml:not([dir=\"rtl\"]) .oj-flex-bar-end{margin-left:auto;}\n@media print, screen{\n.oj-sm-align-items-center{-webkit-align-items:center;align-items:center;}\n}\n.oj-web-applayout-body{overflow-y:scroll;}\n.oj-web-applayout-page{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;box-sizing:border-box;min-height:100vh;}\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){\n.oj-web-applayout-page{height:100vh;min-height:0;}\n}\n.oj-web-applayout-max-width{margin-left:auto;margin-right:auto;width:100%;max-width:1440px;box-sizing:border-box;}\n.oj-web-applayout-header,.oj-web-applayout-footer{-webkit-flex:0 0 auto;flex:0 0 auto;}\n.oj-web-applayout-header{background-color:#f0f0f0;box-shadow:0 3px 3px rgba(0,0,0,0.1);}\n.oj-web-applayout-header\u003ediv:first-child{box-sizing:border-box;}\n.oj-web-applayout-header\u003ediv:first-child::before{content:\"\";display:inline-block;min-height:3.143rem;visibility:hidden;}\n.oj-web-applayout-header\u003ediv,.oj-web-applayout-footer\u003ediv{padding-left:20px;padding-right:20px;}\n.oj-web-applayout-header-title{font-size:1.143rem;font-weight:normal;color:#4d4d4d;line-height:0;padding:0;margin:0;}\n.oj-web-applayout-content{-webkit-flex:1 0 auto;flex:1 0 auto;padding:10px;}\n.oj-web-applayout-footer{min-height:3.571rem;box-sizing:border-box;border-top:1px solid #d9dfe3;background-color:#f0f0f0;padding-top:10px;padding-bottom:10px;}\n.oj-web-applayout-footer-item{box-sizing:border-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex:0 1 auto;flex:0 1 auto;}\n@media screen and (max-width: 767px){\n.oj-web-applayout-footer-item{-webkit-justify-content:center;justify-content:center;text-align:center;}\n}\n.oj-web-applayout-footer ul{margin:0;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer ul{padding-left:0;}\n.oj-web-applayout-footer li{list-style:none;display:inline-block;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li{margin-right:10px;margin-left:0;padding-right:10px;border-right:1px solid #d9dfe3;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li:last-child{margin-right:0;padding-right:0;border-right:none;}\n.traceBox{overflow-x:auto;overflow-y:auto;max-height:60vh;padding:0.8571rem!important;margin:0;}\n.panelCollapsible{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;position:relative;}\n.titleCollapsible{padding:0.8571rem!important;border:1px solid #d6dfe6;border-width:0 0 1px;margin:0;}\n@font-face{font-family:\"Segoe UI\";font-weight:100;src:local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:200;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:300;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:400;src:local(\"Segoe UI\");}\n@font-face{font-family:\"Segoe UI\";font-weight:500;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:600;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:700;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:800;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:900;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:100;src:local(\"HelveticaNeue-Ultralight\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:200;src:local(\"HelveticaNeue-Thin\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:300;src:local(\"HelveticaNeue-Light\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:400;src:local(\"Helvetica Neue\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:500;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:600;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:700;src:local(\"HelveticaNeue-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:800;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:900;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Arial\";font-weight:100;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:200;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:300;src:local(\"sans-serif-light\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:400;src:local(\"sans-serif-regular\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:500;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:600;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:700;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:800;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:900;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n\t\n\t.oj-collapsible {\n\t    margin-bottom: 0 !important;\n\t}\n\t\n\t.header-grid {\n    \tdisplay: grid;\n\t    grid-template-columns: auto 1fr;\n\t    grid-column-gap: 1rem;\n\t    grid-template-areas: \"ords-logo oracle-logo\" \"ords-logo product-name\";\n    }\n    .ords-logo {\n    \tgrid-area: ords-logo;\n    }\n    .oracle-logo {\n    \tgrid-area: oracle-logo;\n    \tpadding-top: 0.2rem;\n    }\n    .product-name {\n    \tgrid-area: product-name;\n    \tfont-size: 1rem;\n    \tpadding-bottom: 0.2rem;\n    }\n\n\u003c/style\u003e\n\u003chead\u003e\n\t\u003ctitle\u003eUnauthorized\u003c/title\u003e\n\t\n\t\u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n\u003c/head\u003e\n\n\u003cbody class=\"oj-web-applayout-body\"\u003e\n    \u003cdiv id=\"globalBody\" class=\"oj-web-applayout-page\"\u003e\n    \n      \u003cheader role=\"banner\" class=\"oj-web-applayout-header\"\u003e\n        \u003cdiv class=\"oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center oj-web-applayout-content\"\u003e\n          \u003cdiv class=\"oj-sm-align-items-center\"\u003e\n            \u003ch1 class=\"header-grid oj-web-applayout-header-title\" title=\"Oracle REST Data Services\"\u003e\n            \t\u003ca class=\"ords-logo\" style=\"\" href=\"../\"\u003e\u003cimg style=\"height:40px;\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAACjZJREFUeNrcW2lwFMcV/npmtSDtSgIVOFQsbofDR8DBUAbMZQ6bOEGJAbtI/CN/uA3lMpAygVTioojL5TgYxGUI2BgqgRgfSAKDJIJjbhwwOIAFYaVgCEaCSKuAjj1mOq9nR9JqD+3M7KyBdNW3u6DZmX7fvPe+93p7GOccSQ3GcEdHkvNnd5AAmfAwQSGcJ6j/7wS4CIMJIwjDCEMJ2frfagmHCUcIhwgnCA33OgFddCNH6u8/IKRFzV+cIvq7AcIpnYwmYirvZgLESz/CcMIT+h3+XqzD1TCIK3sJEsGps9NOj40Y4yLhKOEz/b1MO8UdIYAxMc9BurHDdYM7xTpUCTM41vDGOr1OhjOMmBjjhk5Ek5ecJDJ8qSGAsRzdyKa7O0S/WVHurOpGG6XVa/A4Rxghzthh00j4XA+Xgxo5nFdbJ4CxSfT6jG50/1jXjHRnK8Nr8XtSBCExwobr6iK8YzeRUWCWAPGFH0carFjWqxg6+Gweqj/eBW7DCROETSERMCkekfFGeVMM+3QEbDSe5WbBsWUbMleusqceIvgJtwnVumTcjrDFEgFSigo4x9aPAbcb6XNfRLsxI1JzjZaPHisEVCB2skne9efMgjR6TLOMZm3aApYCpuUIWyx5gN2DdcuB4/U3Wk+iZ09k5q9OpQdUWFEBV1MY+WyclPPTA2CjRses6LxjR8F34KBt1/pOeBnOeb05D+C8jl6v2xkG8otzYhsfHgqy7e7/TTzjjeS4crsI0Fx/8RLwI4ehvr0eqKpq/puvsAD+jz4EVxRShfxvLf4jwiRuIhwmxZA/0QLIy5aBpaeDnz4FpehP4DVtyNTX1fDdf39LKAwcCHbffdrnhjX58O0rhVGyHQ/kwvnDn8DRsxeCnkuoX702pQTEnJRIHcGlvw6dZNpzSCs6BF5fD3XVW1AK9yTW7dra5vNyb3UrPY9X6KTPnY2MWbMRPHsWDRvWoX7V6qQSoBECDIVA8M9/AQiispM3b4F8oQyBn+Vpdz1uSHhbimDV+582z9/uyZHI2vwe1FovaqdNQeDsRTMh4ElUUtuWA5QPdyHwWH+w7j2QdsYDedSw+B4QRgCvvhZ/FeWl+ehQ+imCRGr1gIGGjI+4s+XJEFBhuiS9fBOBp0aDtW8Px54SSIMeCd2RieMhPz2uVQg0e8CNQPPnjNkztRjXPs+aAfeKlVAuXoR34tOmGq4wD/hXMgRc1UtsU0M974Hy6m/IggykfbQbzh3biYxiqKcPhbWBesYMBlsZJtw855wHWWvXwC1inJLNf3/xc1MNU5jH+nUbLBLAtcteNiuF0pBHKR6UUKbs2hXsuefBy8rArzdGeYDqbd0Q+/fsAEtLQ/rsOdo7r6yE3O8hpD3Y29rd521TZ6QCN9UUMepDpbzJkF9d1mq9kO/bG5EEa6JCIUQIOcU/vmw5rksXuJe/BsfQkVYISFjOGybAqAdwCufgkqXwd3dB/eNGzcU1w4o/iZkEeW30koi/pKTZO24vfgU3qX5o2PSOrT2AURlsTiJmq0F+gyMwfQakN5bB8doKqJ8Ut77TB/ci+KOJuBWLgD2F2nvdbxdBvZ26KtDYmiBjU+j1fbubomSXxNoaOS0rQlMoB3yQrAd4kp2Q1IcS4chxkB4bAvTuDZZL/87OBiep7CwOuHULak011MuXEfzqK/hPHEOgeJelu282BxjxgA70WmPWA7ReYcHLkKfPBPr0MW8FqYifWueGFW+icfdeq21wR/IAb3IEhKwRNW1HP4yt/goZTPugAMjNtcWl/ftLUZs3HmqdgWsTOoc+1pDxOXaogKnlMZZNcVX6N9uM1zrHseOQtb3Advc3Q4DHKAHS42PBMjNtT2zOpjVE47LmsZOACqMHq8f2A1eu2E5AoKTY1h7ALAGGiyFp8Ggoi38JfuK4PZarKhryV0G5etXWLtAsAcaLIarf5Q2boGzbiuDUZ8F3F5F8mK8geFUVGtat1RZKWVYW0ufNt70IMloHmK8FqAt0iE6OQkF59x2ory8Hy3CBPTIArEdPQg9wl0vLFQrdYZX6AV5TA4XqAOWfF6kWOAfWMQftJ09F9t5SsHbtUlIDmJFBUViJHRtyonsp+n7R+kaNujrw01+Ae8rBL5ND3b4FTv/X6HSS1zghU9Mjd+sGuW9fyP0fpBNFLw9XGtiNotcA4he9dJLBgD0eIE7E2L/pUzeWqBZQ43Sf4o4Pf0JD+HAbDQkDYSSHr2MYMN5MDjDcFmsqUFlpuwr4i/fZ2gVaJiCRE2oqsOhl8C/P2Ga8b+t7UC5cMOMBnjtGgFABac16KPkrobwwDepf94dWh8yqn9eLxi3vaiqgUrOUsXCR7QpgRgVMFUMiuzs2bgYuXYKyaSMCS1+hErkDGHWDrPcDoWWyDtRjUXZXAgFwgkqyp3WDF8oQPH0KkssNZ95PkV2wB8zlsn0hxJwKhJRAbHU7kqgrjKcCvLoa/OTfyTk94FevhJbCfI2oJ5+S3G5N9hwkj3K/fpAHDAQT6mBSBTq1eMFQSoLH7PYAYz+XxyGU5eSAjZ8AjG/9/1lGVcDvNxMC5fbnAM5Fak/YkKrHS8Fv3rRfBUpL2nbQsIqD5lqViiRoSAqlR0dCfWkeuIGsbVgFdr4P5fx5W3sAqwQk7gkosUmr10H93TIEZ80AP3bU0nZWUSX6dmyH96lxWomcsWCh7QpgNgcYlkKR4eUt28DPnYWycQP4/Dlgud3AhjwOqVcvTQVASiH6A22fobdG6wea1gSDnx/T1tScz0xC1o6dkIRipEACrRDgMeM27KGH4XhL3wZHxmm9QHk51MOHqLOoB0jr68hjWHoGpE6d4ejeHc4JE5DxqyWQsrNh0RBPKgkw3hZHDjKOCUQQaNRMUSukwgMsJcE2VeCzEq21tX1FqKjQ9iLICgEViZMXEBw/io6ssM143+4i1D4/2agMmtveJypBUwCu8VBe50FCYxsIzJ3N1TOnuZWhNjbyxsICXjNmBL9O54qHW6GfI7k+p2tm7TH/vABj0+l1iYjqZrdHaB9x3K90JVUYNRFs0GDqBXqH8oE7U1sjUEWFR/GtXP8G6pUrCJZRL3D8KBU+xVAD8d1WdAcRD1eIn/GXk1UbTZlj8YEJEXLiN0MhzoOavUknwswZvSYzthtRDyqcJPyesJOMD5o2xYZHZsbSq+hVJ4SHotGd5UYIcOp3PKw9EpMWW9HeJKMPJDV9Gx+aEpuBFhCmhc81qC/QWSEgXayvts7wohHdRvgDQg9D3JVPjX2XINawZxKaSzhFJ8MIAS7d+LD4Fr9NrieIbaTXjXSfqVOBaFWIh0zCQsLXvCVLcyVCKZqyObVvYkMvV8KOJXgI8wiuuNdJcv6pJKAJaYQXCF+EE6GKhV7CTZ0I3hrHCVMJcsLz3wMEhGMcYS9B5dFGK4RdhBGmznmPEdCE7xO2EvyEBsLbhL6WzpXk/NkdfnpcbCIQa11VSSSxu04Fvt2R5Pz/J8AAZCagClntSh0AAAAASUVORK5CYII=\" /\u003e\u003c/a\u003e\n\t            \n\t\t\t\t\u003cdiv class=\"oracle-logo\"\u003e\n\t\t\t\t\t\u003c?xml version=\"1.0\" encoding=\"utf-8\"?\u003e\n\t\t\t\t\t\u003c!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"\u003e\n\t\t\t\t\t\u003csvg version=\"1.1\" id=\"oracle\" xmlns:svg=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\t xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"104px\" height=\"17px\"\n\t\t\t\t\t\t viewBox=\"263.42 38.57 136 17\" enable-background=\"new 263.42 38.57 136 17\" xml:space=\"preserve\"\u003e\n\t\t\t\t\t\u003cpath id=\"logo\" fill=\"#000000\" d=\"M320.07,49.63h8.64l-4.57-7.35l-8.38,13.29h-3.82l10.2-15.96c0.44-0.64,1.18-1.04,2-1.04\n\t\t\t\t\t\tc0.79,0,1.53,0.38,1.96,1.01l10.24,15.99h-3.82l-1.8-2.97h-8.75L320.07,49.63z M359.7,52.6V38.74h-3.24v15.22\n\t\t\t\t\t\tc0,0.42,0.16,0.82,0.47,1.13c0.31,0.31,0.72,0.48,1.18,0.48h14.77l1.91-2.97H359.7z M306.13,50.12c3.14,0,5.7-2.54,5.7-5.68\n\t\t\t\t\t\tc0-3.14-2.55-5.7-5.7-5.7h-14.17v16.84h3.24V41.71h10.71c1.5,0,2.71,1.22,2.71,2.73s-1.21,2.73-2.71,2.73l-9.13-0.01l9.67,8.42h4.7\n\t\t\t\t\t\tl-6.5-5.46H306.13z M272.04,55.57c-4.65,0-8.42-3.76-8.42-8.41c0-4.65,3.77-8.42,8.42-8.42h9.78c4.65,0,8.42,3.78,8.42,8.42\n\t\t\t\t\t\tc0,4.65-3.77,8.41-8.42,8.41H272.04z M281.61,52.6c3.01,0,5.45-2.43,5.45-5.44c0-3.01-2.44-5.46-5.45-5.46h-9.35\n\t\t\t\t\t\tc-3.01,0-5.45,2.45-5.45,5.46c0,3.01,2.44,5.44,5.45,5.44H281.61z M343.1,55.57c-4.65,0-8.42-3.76-8.42-8.41\n\t\t\t\t\t\tc0-4.65,3.78-8.42,8.42-8.42h11.62l-1.89,2.97h-9.51c-3.01,0-5.46,2.45-5.46,5.46c0,3.01,2.45,5.44,5.46,5.44h11.68l-1.91,2.97\n\t\t\t\t\t\tL343.1,55.57L343.1,55.57z M382.69,52.6c-2.49,0-4.59-1.67-5.24-3.96h13.84l1.91-2.97h-15.75c0.64-2.28,2.75-3.96,5.24-3.96h9.5\n\t\t\t\t\t\tl1.92-2.97h-11.64c-4.65,0-8.42,3.78-8.42,8.42s3.78,8.41,8.42,8.41h9.98l1.91-2.97L382.69,52.6\"/\u003e\n\t\t\t\t\t\u003cpath id=\"reg\" fill=\"#000000\" d=\"M395.85,40.52c0-0.82,0.66-1.48,1.48-1.48c0.83,0,1.49,0.66,1.49,1.48c0,0.83-0.66,1.49-1.49,1.49\n\t\t\t\t\t\tC396.51,42.02,395.85,41.36,395.85,40.52z M397.33,42.43c1.05,0,1.89-0.85,1.89-1.89s-0.85-1.89-1.89-1.89\n\t\t\t\t\t\tc-1.03,0-1.88,0.85-1.88,1.89S396.29,42.43,397.33,42.43z M397.15,39.41c0.29,0,0.42,0.01,0.55,0.07c0.38,0.12,0.42,0.46,0.42,0.59\n\t\t\t\t\t\tc0,0.03,0,0.09-0.03,0.17c-0.01,0.08-0.07,0.24-0.25,0.36c-0.03,0.01-0.04,0.03-0.09,0.05l0.48,0.87h-0.47l-0.43-0.81h-0.3v0.81\n\t\t\t\t\t\th-0.42v-2.12H397.15z M397.3,40.38c0.13-0.01,0.27-0.01,0.35-0.13c0.04-0.05,0.05-0.11,0.05-0.19c0-0.11-0.07-0.2-0.16-0.25\n\t\t\t\t\t\tc-0.09-0.04-0.19-0.04-0.39-0.04h-0.12v0.62H397.3\"/\u003e\n\t\t\t\t\t\u003c/svg\u003e\n\t\t\t\t\u003c/div\u003e\n\t\t\t\t\u003cspan class=\"product-name\"\u003eREST Data Services\u003c/span\u003e\n\t\t    \u003c/h1\u003e\n          \u003c/div\u003e\n          \u003cdiv class=\"oj-flex-bar-end\"\u003e\n            \u003c!-- Responsive Toolbar --\u003e\n            \n          \u003c/div\u003e\n        \u003c/div\u003e\n      \u003c/header\u003e\n      \u003cdiv role=\"main\" class=\"oj-web-applayout-max-width oj-web-applayout-content\"\u003e\n      \n      \t\t\u003cdiv class=\"oj-panel oj-margin oj-panel-alt4\"\u003e\n\t\t\t\t\u003ch3\u003e\n\t\t\t\t\t\u003cspan style=\"font-weight: bold;\n\t\t\t\t\t\t\t    padding-left: 0.4em;\n\t\t\t\t\t\t\t    color: #e53935;\n\t\t\t\t\t\t\t    font-size: 1.7rem;\"\u003e\n\t\t\t\t\t    401\n\t\t\t\t    \u003c/span\u003e\n\t\t\t\t\t\u003cspan style=\"padding-left: 0.4em;\"\u003eUnauthorized\u003c/span\u003e\n\t\t\t\t\u003c/h3\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\u003cdiv id=\"reasons\" class=\"oj-panel oj-margin\"\u003e\n\t\t\t\t\u003cul\u003e\n\t\t\t\t\t\n\t\t\t\t\u003c/ul\u003e\n\t\t\t\t\n\t        \t\u003ch4 style=\"padding-left: 0.4em;\"\u003e\n\tAccess to this resource is protected. Please \u003ca href=\"https://bsm.api.iql.ru/ords/bsm/sign-in/?r=segmentation%2Fget_segmentation%3Fp_limit%3D50%26p_offset%3D0\" style=\"font-weight: 500;\"\u003esign in\u003c/a\u003e to access this resource.\n\u003c/h4\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\n\t\t\t\n      \u003c/div\u003e\n      \u003cfooter class=\"oj-web-applayout-footer\" role=\"contentinfo\"\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width\"\u003e\n          \u003cul\u003e\n            \u003cli\u003e\u003ca id=\"aboutOracle\" href=\"http://www.oracle.com/us/corporate/index.html#menu-about\"\u003e\n\t\t About Oracle\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"contactUs\" href=\"http://www.oracle.com/us/corporate/contact/index.html\"\u003e\n\t\t Contact Us\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"legalNotices\" href=\"http://www.oracle.com/us/legal/index.html\"\u003e\n\t\t Legal Notices\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"termsOfUse\" href=\"http://www.oracle.com/us/legal/terms/index.html\"\u003e\n\t\t Terms Of Use\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"yourPrivacyRights\" href=\"http://www.oracle.com/us/legal/privacy/index.html\"\u003e\n\t\t Your Privacy Rights\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n          \u003c/ul\u003e\n        \u003c/div\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-secondary-color oj-text-sm\"\u003e\n            Copyright © 2009, 2019 Oracle and/or its affiliates All rights reserved.\n        \u003c/div\u003e\n      \u003c/footer\u003e\n    \u003c/div\u003e\n    \u003cscript\u003e\n       function noReason() {\n\t\tif(document.getElementById(\"reasons\").children[1] !== undefined) {\n\t\t\tdocument.getElementById(\"reasons\").removeChild(document.getElementById(\"reasons\").children[0]);\n\t\t}\n\t\telse if(document.getElementById(\"reasons\").children[0].children[0] === undefined){\n\t\t\tdocument.getElementById(\"reasons\").remove();\n\t\t}\n       }\n       \n       noReason();\n    \u003c/script\u003e\n\u003c/body\u003e\n\n\u003c/html\u003e\n"
 }
-[13:18:18.892] INFO: request completed {
+[11:32:32.807] INFO: request completed {
   "method": "POST",
   "path": "/api/segmentation/import",
   "status": 500
+}
+[14:22:22.912] [34mINFO:[0m [36mstarting log cleanup[0m [37m{
+  "cutoff_time": "2025-04-02T14:44:22+03:00",
+  "log_dir": "log",
+  "max_age_days": 7
+}[0m
+[14:22:22.913] [34mINFO:[0m [36mlog cleanup completed[0m [37m{
+  "removed_files": 0
+}[0m
+[14:22:22.913] [34mINFO:[0m [36mconnecting to database[0m [37m{
+  "dbname": "mesh_group",
+  "host": "127.0.0.1",
+  "port": "5432",
+  "user": "postgres"
+}[0m
+[14:22:22.927] [34mINFO:[0m [36msuccessfully connected to database[0m [37m[0m
+[14:22:22.927] [34mINFO:[0m [36mconfig:[0m [37m{
+  "cfg": {
+    "Env": "local",
+    "TokenTTL": 3600000000000,
+    "DB": {
+      "Host": "127.0.0.1",
+      "Port": "5432",
+      "Name": "mesh_group",
+      "User": "postgres",
+      "Password": "postgres"
+    },
+    "Connection": {
+      "URI": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation",
+      "AuthLoginPwd": "4Dfddf5:jKlljHGH",
+      "UserAgent": "spacecount-test",
+      "Timeout": 5000000000,
+      "Interval": 1500000000
+    },
+    "Import": {
+      "BatchSize": 50,
+      "LogCleanupMaxAge": 7,
+      "UseTestData": true
+    },
+    "App": {
+      "Port": "8080"
+    }
+  }
+}[0m
+[14:22:22.927] [34mINFO:[0m [36mstarting API server[0m [37m{
+  "address": ":8080"
+}[0m
+[14:27:27.577] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "POST",
+  "path": "/api/segmentation/import"
+}[0m
+[14:27:27.577] [34mINFO:[0m [36mstarting segmentation import[0m [37m[0m
+[14:27:27.577] [34mINFO:[0m [36musing test data as configured by USE_TEST_DATA=true[0m [37m[0m
+[14:27:27.577] [34mINFO:[0m [36mgenerating test data for development[0m [37m[0m
+[14:27:27.587] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "POST",
+  "path": "/api/segmentation/import",
+  "status": 200
+}[0m
+[14:31:31.305] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/index.html"
+}[0m
+[14:31:31.307] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/index.html",
+  "status": 200
+}[0m
+[14:31:31.362] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css"
+}[0m
+[14:31:31.362] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}[0m
+[14:31:31.363] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css",
+  "status": 200
+}[0m
+[14:31:31.363] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}[0m
+[14:31:31.364] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}[0m
+[14:31:31.367] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}[0m
+[14:31:31.456] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/doc.json"
+}[0m
+[14:31:31.456] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/doc.json",
+  "status": 200
+}[0m
+[14:31:31.465] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png"
+}[0m
+[14:31:31.465] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png",
+  "status": 200
+}[0m
+[14:36:36.128] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}[0m
+[14:36:36.130] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
+}[0m
+[14:44:44.843] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/index.html"
+}[0m
+[14:44:44.844] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/index.html",
+  "status": 200
+}[0m
+[14:44:44.864] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css"
+}[0m
+[14:44:44.864] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css",
+  "status": 200
+}[0m
+[14:44:44.867] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}[0m
+[14:44:44.867] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}[0m
+[14:44:44.868] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}[0m
+[14:44:44.870] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}[0m
+[14:44:44.905] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/doc.json"
+}[0m
+[14:44:44.905] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/doc.json",
+  "status": 200
+}[0m
+[14:44:44.906] [34mINFO:[0m [36mrequest started[0m [37m{
+  "ip": "::1",
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png"
+}[0m
+[14:44:44.906] [34mINFO:[0m [36mrequest completed[0m [37m{
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png",
+  "status": 200
+}[0m
+[11:57:57.220] INFO: starting log cleanup {
+  "cutoff_time": "2025-04-02T11:44:57Z",
+  "log_dir": "log",
+  "max_age_days": 7
+}
+[11:57:57.221] INFO: log cleanup completed {
+  "removed_files": 0
+}
+[11:57:57.221] INFO: connecting to database {
+  "dbname": "mesh_group",
+  "host": "postgres",
+  "port": "5432",
+  "user": "postgres"
+}
+[11:57:57.230] INFO: successfully connected to database 
+[11:57:57.231] INFO: starting API server {
+  "address": ":8080"
+}
+[11:59:59.655] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/index.html"
+}
+[11:59:59.662] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/index.html",
+  "status": 200
+}
+[11:59:59.687] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css"
+}
+[11:59:59.690] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}
+[11:59:59.691] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css",
+  "status": 200
+}
+[11:59:59.693] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}
+[11:59:59.694] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}
+[11:59:59.695] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}
+[11:59:59.744] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png"
+}
+[11:59:59.745] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png",
+  "status": 200
+}
+[11:59:59.744] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/doc.json"
+}
+[11:59:59.745] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/doc.json",
+  "status": 200
+}
+[11:05:05.584] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "POST",
+  "path": "/api/segmentation/import"
+}
+[11:05:05.584] INFO: starting segmentation import 
+[11:05:05.584] INFO: fetching data from SAP API {
+  "limit": 50,
+  "offset": 0,
+  "url": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation"
+}
+[11:05:05.673] ERROR: failed to fetch segmentation {
+  "error": "error response from SAP API: status=401, body=\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003cstyle type=\"text/css\" media=\"screen\"\u003e\nfooter,header{display:block;}\nhtml{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}\nbody{margin:0;}\nh1{font-size:2em;margin:0.67em 0;}\npre{font-family:monospace, serif;font-size:1em;}\npre{white-space:pre-wrap;}\nimg{border:0;}\nhtml{font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Helvetica Neue\",Arial,sans-serif;font-size:0.875em;}\nbody{background-color:#f9fafa;color:#333;}\na{color:#045fab;line-height:inherit;text-decoration:none;}\na:visited{color:#045fab;}\na:hover,a:focus{text-decoration:underline;}\na:active{color:#034379;font-weight:normal;border-radius:1px;}\nh1,h3{color:#252525;font-family:inherit;font-style:normal;font-weight:normal;margin:8px 0;padding:0 0 2px;}\nh1{font-size:2.429rem;font-weight:200;}\nh3{font-size:1.429rem;font-weight:300;}\nul{margin:12px 0;padding-left:40px;}\nul li{line-height:1.25;}\n.oj-text-sm{font-size:0.857rem;}\n.oj-text-secondary-color{color:#4d4d4d;}\n.oj-margin{margin:10px;}\n.oj-panel{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;padding:0.8571rem;position:relative;}\n.oj-panel-alt4{background-color:#ffe4e1;border-color:#ffcdc8;}\n.oj-flex-bar{position:relative;}\n.oj-flex-bar,.oj-flex-bar-middle,.oj-flex-bar-end{box-sizing:border-box;display:-webkit-flex;display:flex;}\n.oj-flex-bar-middle{-webkit-flex:auto;flex:auto;}\nhtml:not([dir=\"rtl\"]) .oj-flex-bar-end{margin-left:auto;}\n@media print, screen{\n.oj-sm-align-items-center{-webkit-align-items:center;align-items:center;}\n}\n.oj-web-applayout-body{overflow-y:scroll;}\n.oj-web-applayout-page{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;box-sizing:border-box;min-height:100vh;}\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){\n.oj-web-applayout-page{height:100vh;min-height:0;}\n}\n.oj-web-applayout-max-width{margin-left:auto;margin-right:auto;width:100%;max-width:1440px;box-sizing:border-box;}\n.oj-web-applayout-header,.oj-web-applayout-footer{-webkit-flex:0 0 auto;flex:0 0 auto;}\n.oj-web-applayout-header{background-color:#f0f0f0;box-shadow:0 3px 3px rgba(0,0,0,0.1);}\n.oj-web-applayout-header\u003ediv:first-child{box-sizing:border-box;}\n.oj-web-applayout-header\u003ediv:first-child::before{content:\"\";display:inline-block;min-height:3.143rem;visibility:hidden;}\n.oj-web-applayout-header\u003ediv,.oj-web-applayout-footer\u003ediv{padding-left:20px;padding-right:20px;}\n.oj-web-applayout-header-title{font-size:1.143rem;font-weight:normal;color:#4d4d4d;line-height:0;padding:0;margin:0;}\n.oj-web-applayout-content{-webkit-flex:1 0 auto;flex:1 0 auto;padding:10px;}\n.oj-web-applayout-footer{min-height:3.571rem;box-sizing:border-box;border-top:1px solid #d9dfe3;background-color:#f0f0f0;padding-top:10px;padding-bottom:10px;}\n.oj-web-applayout-footer-item{box-sizing:border-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex:0 1 auto;flex:0 1 auto;}\n@media screen and (max-width: 767px){\n.oj-web-applayout-footer-item{-webkit-justify-content:center;justify-content:center;text-align:center;}\n}\n.oj-web-applayout-footer ul{margin:0;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer ul{padding-left:0;}\n.oj-web-applayout-footer li{list-style:none;display:inline-block;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li{margin-right:10px;margin-left:0;padding-right:10px;border-right:1px solid #d9dfe3;}\nhtml:not([dir=\"rtl\"]) .oj-web-applayout-footer li:last-child{margin-right:0;padding-right:0;border-right:none;}\n.traceBox{overflow-x:auto;overflow-y:auto;max-height:60vh;padding:0.8571rem!important;margin:0;}\n.panelCollapsible{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;position:relative;}\n.titleCollapsible{padding:0.8571rem!important;border:1px solid #d6dfe6;border-width:0 0 1px;margin:0;}\n@font-face{font-family:\"Segoe UI\";font-weight:100;src:local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:200;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:300;src:local(\"Segoe UI Semilight\"),local(\"Segoe UI Light\");}\n@font-face{font-family:\"Segoe UI\";font-weight:400;src:local(\"Segoe UI\");}\n@font-face{font-family:\"Segoe UI\";font-weight:500;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:600;src:local(\"Segoe UI Semibold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:700;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:800;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Segoe UI\";font-weight:900;src:local(\"Segoe UI Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:100;src:local(\"HelveticaNeue-Ultralight\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:200;src:local(\"HelveticaNeue-Thin\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:300;src:local(\"HelveticaNeue-Light\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:400;src:local(\"Helvetica Neue\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:500;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:600;src:local(\"HelveticaNeue-Medium\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:700;src:local(\"HelveticaNeue-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:800;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Helvetica Neue\";font-weight:900;src:local(\"Helvetica-Bold\");}\n@font-face{font-family:\"Arial\";font-weight:100;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:200;src:local(\"sans-serif-thin\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:300;src:local(\"sans-serif-light\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:400;src:local(\"sans-serif-regular\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:500;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:600;src:local(\"sans-serif-medium\"),local(\"Arial\");}\n@font-face{font-family:\"Arial\";font-weight:700;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:800;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n@font-face{font-family:\"Arial\";font-weight:900;src:local(\"sans-serif-bold\"),local(\"Arial Bold\");}\n\t\n\t.oj-collapsible {\n\t    margin-bottom: 0 !important;\n\t}\n\t\n\t.header-grid {\n    \tdisplay: grid;\n\t    grid-template-columns: auto 1fr;\n\t    grid-column-gap: 1rem;\n\t    grid-template-areas: \"ords-logo oracle-logo\" \"ords-logo product-name\";\n    }\n    .ords-logo {\n    \tgrid-area: ords-logo;\n    }\n    .oracle-logo {\n    \tgrid-area: oracle-logo;\n    \tpadding-top: 0.2rem;\n    }\n    .product-name {\n    \tgrid-area: product-name;\n    \tfont-size: 1rem;\n    \tpadding-bottom: 0.2rem;\n    }\n\n\u003c/style\u003e\n\u003chead\u003e\n\t\u003ctitle\u003eUnauthorized\u003c/title\u003e\n\t\n\t\u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n\u003c/head\u003e\n\n\u003cbody class=\"oj-web-applayout-body\"\u003e\n    \u003cdiv id=\"globalBody\" class=\"oj-web-applayout-page\"\u003e\n    \n      \u003cheader role=\"banner\" class=\"oj-web-applayout-header\"\u003e\n        \u003cdiv class=\"oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center oj-web-applayout-content\"\u003e\n          \u003cdiv class=\"oj-sm-align-items-center\"\u003e\n            \u003ch1 class=\"header-grid oj-web-applayout-header-title\" title=\"Oracle REST Data Services\"\u003e\n            \t\u003ca class=\"ords-logo\" style=\"\" href=\"../\"\u003e\u003cimg style=\"height:40px;\" src=\"data:image/png;base64,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\" /\u003e\u003c/a\u003e\n\t            \n\t\t\t\t\u003cdiv class=\"oracle-logo\"\u003e\n\t\t\t\t\t\u003c?xml version=\"1.0\" encoding=\"utf-8\"?\u003e\n\t\t\t\t\t\u003c!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"\u003e\n\t\t\t\t\t\u003csvg version=\"1.1\" id=\"oracle\" xmlns:svg=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\t xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"104px\" height=\"17px\"\n\t\t\t\t\t\t viewBox=\"263.42 38.57 136 17\" enable-background=\"new 263.42 38.57 136 17\" xml:space=\"preserve\"\u003e\n\t\t\t\t\t\u003cpath id=\"logo\" fill=\"#000000\" d=\"M320.07,49.63h8.64l-4.57-7.35l-8.38,13.29h-3.82l10.2-15.96c0.44-0.64,1.18-1.04,2-1.04\n\t\t\t\t\t\tc0.79,0,1.53,0.38,1.96,1.01l10.24,15.99h-3.82l-1.8-2.97h-8.75L320.07,49.63z M359.7,52.6V38.74h-3.24v15.22\n\t\t\t\t\t\tc0,0.42,0.16,0.82,0.47,1.13c0.31,0.31,0.72,0.48,1.18,0.48h14.77l1.91-2.97H359.7z M306.13,50.12c3.14,0,5.7-2.54,5.7-5.68\n\t\t\t\t\t\tc0-3.14-2.55-5.7-5.7-5.7h-14.17v16.84h3.24V41.71h10.71c1.5,0,2.71,1.22,2.71,2.73s-1.21,2.73-2.71,2.73l-9.13-0.01l9.67,8.42h4.7\n\t\t\t\t\t\tl-6.5-5.46H306.13z M272.04,55.57c-4.65,0-8.42-3.76-8.42-8.41c0-4.65,3.77-8.42,8.42-8.42h9.78c4.65,0,8.42,3.78,8.42,8.42\n\t\t\t\t\t\tc0,4.65-3.77,8.41-8.42,8.41H272.04z M281.61,52.6c3.01,0,5.45-2.43,5.45-5.44c0-3.01-2.44-5.46-5.45-5.46h-9.35\n\t\t\t\t\t\tc-3.01,0-5.45,2.45-5.45,5.46c0,3.01,2.44,5.44,5.45,5.44H281.61z M343.1,55.57c-4.65,0-8.42-3.76-8.42-8.41\n\t\t\t\t\t\tc0-4.65,3.78-8.42,8.42-8.42h11.62l-1.89,2.97h-9.51c-3.01,0-5.46,2.45-5.46,5.46c0,3.01,2.45,5.44,5.46,5.44h11.68l-1.91,2.97\n\t\t\t\t\t\tL343.1,55.57L343.1,55.57z M382.69,52.6c-2.49,0-4.59-1.67-5.24-3.96h13.84l1.91-2.97h-15.75c0.64-2.28,2.75-3.96,5.24-3.96h9.5\n\t\t\t\t\t\tl1.92-2.97h-11.64c-4.65,0-8.42,3.78-8.42,8.42s3.78,8.41,8.42,8.41h9.98l1.91-2.97L382.69,52.6\"/\u003e\n\t\t\t\t\t\u003cpath id=\"reg\" fill=\"#000000\" d=\"M395.85,40.52c0-0.82,0.66-1.48,1.48-1.48c0.83,0,1.49,0.66,1.49,1.48c0,0.83-0.66,1.49-1.49,1.49\n\t\t\t\t\t\tC396.51,42.02,395.85,41.36,395.85,40.52z M397.33,42.43c1.05,0,1.89-0.85,1.89-1.89s-0.85-1.89-1.89-1.89\n\t\t\t\t\t\tc-1.03,0-1.88,0.85-1.88,1.89S396.29,42.43,397.33,42.43z M397.15,39.41c0.29,0,0.42,0.01,0.55,0.07c0.38,0.12,0.42,0.46,0.42,0.59\n\t\t\t\t\t\tc0,0.03,0,0.09-0.03,0.17c-0.01,0.08-0.07,0.24-0.25,0.36c-0.03,0.01-0.04,0.03-0.09,0.05l0.48,0.87h-0.47l-0.43-0.81h-0.3v0.81\n\t\t\t\t\t\th-0.42v-2.12H397.15z M397.3,40.38c0.13-0.01,0.27-0.01,0.35-0.13c0.04-0.05,0.05-0.11,0.05-0.19c0-0.11-0.07-0.2-0.16-0.25\n\t\t\t\t\t\tc-0.09-0.04-0.19-0.04-0.39-0.04h-0.12v0.62H397.3\"/\u003e\n\t\t\t\t\t\u003c/svg\u003e\n\t\t\t\t\u003c/div\u003e\n\t\t\t\t\u003cspan class=\"product-name\"\u003eREST Data Services\u003c/span\u003e\n\t\t    \u003c/h1\u003e\n          \u003c/div\u003e\n          \u003cdiv class=\"oj-flex-bar-end\"\u003e\n            \u003c!-- Responsive Toolbar --\u003e\n            \n          \u003c/div\u003e\n        \u003c/div\u003e\n      \u003c/header\u003e\n      \u003cdiv role=\"main\" class=\"oj-web-applayout-max-width oj-web-applayout-content\"\u003e\n      \n      \t\t\u003cdiv class=\"oj-panel oj-margin oj-panel-alt4\"\u003e\n\t\t\t\t\u003ch3\u003e\n\t\t\t\t\t\u003cspan style=\"font-weight: bold;\n\t\t\t\t\t\t\t    padding-left: 0.4em;\n\t\t\t\t\t\t\t    color: #e53935;\n\t\t\t\t\t\t\t    font-size: 1.7rem;\"\u003e\n\t\t\t\t\t    401\n\t\t\t\t    \u003c/span\u003e\n\t\t\t\t\t\u003cspan style=\"padding-left: 0.4em;\"\u003eUnauthorized\u003c/span\u003e\n\t\t\t\t\u003c/h3\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\u003cdiv id=\"reasons\" class=\"oj-panel oj-margin\"\u003e\n\t\t\t\t\u003cul\u003e\n\t\t\t\t\t\n\t\t\t\t\u003c/ul\u003e\n\t\t\t\t\n\t        \t\u003ch4 style=\"padding-left: 0.4em;\"\u003e\n\tAccess to this resource is protected. Please \u003ca href=\"https://bsm.api.iql.ru/ords/bsm/sign-in/?r=segmentation%2Fget_segmentation%3Fp_limit%3D50%26p_offset%3D0\" style=\"font-weight: 500;\"\u003esign in\u003c/a\u003e to access this resource.\n\u003c/h4\u003e\n\t\t\t\u003c/div\u003e\n\t\t\t\n\t\t\t\n\t\t\t\n      \u003c/div\u003e\n      \u003cfooter class=\"oj-web-applayout-footer\" role=\"contentinfo\"\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width\"\u003e\n          \u003cul\u003e\n            \u003cli\u003e\u003ca id=\"aboutOracle\" href=\"http://www.oracle.com/us/corporate/index.html#menu-about\"\u003e\n\t\t About Oracle\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"contactUs\" href=\"http://www.oracle.com/us/corporate/contact/index.html\"\u003e\n\t\t Contact Us\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"legalNotices\" href=\"http://www.oracle.com/us/legal/index.html\"\u003e\n\t\t Legal Notices\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"termsOfUse\" href=\"http://www.oracle.com/us/legal/terms/index.html\"\u003e\n\t\t Terms Of Use\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n            \u003cli\u003e\u003ca id=\"yourPrivacyRights\" href=\"http://www.oracle.com/us/legal/privacy/index.html\"\u003e\n\t\t Your Privacy Rights\n\t\t\u003c/a\u003e\n\t    \u003c/li\u003e\n          \u003c/ul\u003e\n        \u003c/div\u003e\n        \u003cdiv class=\"oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-secondary-color oj-text-sm\"\u003e\n            Copyright © 2009, 2019 Oracle and/or its affiliates All rights reserved.\n        \u003c/div\u003e\n      \u003c/footer\u003e\n    \u003c/div\u003e\n    \u003cscript\u003e\n       function noReason() {\n\t\tif(document.getElementById(\"reasons\").children[1] !== undefined) {\n\t\t\tdocument.getElementById(\"reasons\").removeChild(document.getElementById(\"reasons\").children[0]);\n\t\t}\n\t\telse if(document.getElementById(\"reasons\").children[0].children[0] === undefined){\n\t\t\tdocument.getElementById(\"reasons\").remove();\n\t\t}\n       }\n       \n       noReason();\n    \u003c/script\u003e\n\u003c/body\u003e\n\n\u003c/html\u003e\n"
+}
+[11:05:05.675] INFO: request completed {
+  "method": "POST",
+  "path": "/api/segmentation/import",
+  "status": 500
+}
+[11:04:04.622] INFO: starting log cleanup {
+  "cutoff_time": "2025-04-02T11:51:04Z",
+  "log_dir": "log",
+  "max_age_days": 7
+}
+[11:04:04.623] INFO: log cleanup completed {
+  "removed_files": 0
+}
+[11:04:04.623] INFO: connecting to database {
+  "dbname": "mesh_group",
+  "host": "postgres",
+  "port": "5432",
+  "user": "postgres"
+}
+[11:04:04.627] INFO: successfully connected to database 
+[11:04:04.627] INFO: config: {
+  "cfg": {
+    "Env": "local",
+    "TokenTTL": 3600000000000,
+    "DB": {
+      "Host": "postgres",
+      "Port": "5432",
+      "Name": "mesh_group",
+      "User": "postgres",
+      "Password": "postgres"
+    },
+    "Connection": {
+      "URI": "http://bsm.api.iql.ru/ords/bsm/segmentation/get_segmentation",
+      "AuthLoginPwd": "4Dfddf5:jKlljHGH",
+      "UserAgent": "spacecount-test",
+      "Timeout": 5000000000,
+      "Interval": 1500000000
+    },
+    "Import": {
+      "BatchSize": 50,
+      "LogCleanupMaxAge": 7,
+      "UseTestData": true
+    },
+    "App": {
+      "Port": "8080"
+    }
+  }
+}
+[11:04:04.628] INFO: starting API server {
+  "address": ":8080"
+}
+[11:06:06.112] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/index.html"
+}
+[11:06:06.113] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/index.html",
+  "status": 200
+}
+[11:06:06.134] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css"
+}
+[11:06:06.136] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui.css",
+  "status": 200
+}
+[11:06:06.141] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js"
+}
+[11:06:06.141] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js"
+}
+[11:06:06.142] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-bundle.js",
+  "status": 200
+}
+[11:06:06.143] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/swagger-ui-standalone-preset.js",
+  "status": 200
+}
+[11:06:06.184] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/doc.json"
+}
+[11:06:06.185] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/doc.json",
+  "status": 200
+}
+[11:06:06.186] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png"
+}
+[11:06:06.186] INFO: request completed {
+  "method": "GET",
+  "path": "/swagger/favicon-32x32.png",
+  "status": 200
+}
+[11:10:10.046] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "POST",
+  "path": "/api/segmentation/import"
+}
+[11:10:10.047] INFO: starting segmentation import 
+[11:10:10.047] INFO: using test data as configured by USE_TEST_DATA=true 
+[11:10:10.047] INFO: generating test data for development 
+[11:10:10.059] INFO: request completed {
+  "method": "POST",
+  "path": "/api/segmentation/import",
+  "status": 200
+}
+[11:19:19.483] INFO: request started {
+  "ip": "192.168.0.1",
+  "method": "GET",
+  "path": "/api/segmentation/"
+}
+[11:19:19.486] INFO: request completed {
+  "method": "GET",
+  "path": "/api/segmentation/",
+  "status": 200
 }
